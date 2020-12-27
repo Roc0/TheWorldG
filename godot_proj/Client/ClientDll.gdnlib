@@ -1,0 +1,14 @@
+[general]
+
+singleton=false
+load_once=true
+symbol_prefix="godot_"
+reloadable=true
+
+[entry]
+
+Windows.64="res://Client/TheWorld_GD_ClientDll_d.dll"
+
+[dependencies]
+
+Windows.64=[ "res://Client/TheWorld_ClientDll_d.dll" ]

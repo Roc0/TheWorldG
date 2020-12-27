@@ -16,7 +16,16 @@ _global_script_class_icons={
 [application]
 
 config/name="The World"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Client="*res://Client/Client.gd"
+
+[gdnative]
+
+singletons=[  ]
 
 [rendering]
 
