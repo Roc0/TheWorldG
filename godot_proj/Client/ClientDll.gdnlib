@@ -11,4 +11,4 @@ Windows.64="res://Client/TheWorld_GD_ClientDll_d.dll"
 
 [dependencies]
 
-Windows.64=[ "res://Client/TheWorld_ClientDll_d.dll" ]
+Windows.64=[  ]
