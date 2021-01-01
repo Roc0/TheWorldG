@@ -18,4 +18,8 @@ func _ready():
 
 func _on_loginButton_pressed():
 	Client.ClientApp.say("Login!")
+	var s = "TheWorldG"
+	var ip = ""
+	var port = 0
+	var result = Client.ClientApp.Login($LoginPanel/usernameEdit.text, $LoginPanel/passwordEdit.text, s, ip, port)
 

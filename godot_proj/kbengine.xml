@@ -1,0 +1,131 @@
+<root>
+    <gameUpdateHertz>10</gameUpdateHertz>
+    <!-- If it is not 0, it will not be optimized. Packets without packet length information are mandatory to carry length information. In some cases, it is convenient for certain front-end docking protocols
+What kind of packets do not carry length information? All packets that can be calculated in advance and never change without length information,
+If there are variable string parameters, you must bring length information -->
+    <packetAlwaysContainLength>0</packetAlwaysContainLength>
+    <!-- Do you need to output any received and sent packets in text to log to provide debugging
+		debug_type:
+			0: No output
+			1: Hexadecimal output
+			2: Character stream output
+			3: Decimal output
+		use_logfile:
+			Whether to record the contents of the package in a separate log file, the file name is usually
+			appname_packetlogs.log
+		disable_msgs:
+			Turn off the output of certain packages
+	-->
+    <trace_packet>
+        <debug_type>0</debug_type>
+        <use_logfile>false</use_logfile>
+        <disables>
+            <item>Encrypted::packet</item>
+            <item>Baseapp::onUpdateDataFromClient</item>
+            <item>Client::onUpdateVolatileData</item>
+            <item>Client::onUpdateData</item>
+            <item>Client::onUpdateBasePos</item>
+            <item>Client::onUpdateData_xz</item>
+            <item>Client::onUpdateData_xyz</item>
+            <item>Client::onUpdateData_y</item>
+            <item>Client::onUpdateData_r</item>
+            <item>Client::onUpdateData_p</item>
+            <item>Client::onUpdateData_ypr</item>
+            <item>Client::onUpdateData_yp</item>
+            <item>Client::onUpdateData_yr</item>
+            <item>Client::onUpdateData_pr</item>
+            <item>Client::onUpdateData_xz_y</item>
+            <item>Client::onUpdateData_xz_p</item>
+            <item>Client::onUpdateData_xz_r</item>
+            <item>Client::onUpdateData_xz_yr</item>
+            <item>Client::onUpdateData_xz_yp</item>
+            <item>Client::onUpdateData_xz_pr</item>
+            <item>Client::onUpdateData_xz_ypr</item>
+            <item>Client::onUpdateData_xyz_y</item>
+            <item>Client::onUpdateData_xyz_p</item>
+            <item>Client::onUpdateData_xyz_r</item>
+            <item>Client::onUpdateData_xyz_yr</item>
+            <item>Client::onUpdateData_xyz_yp</item>
+            <item>Client::onUpdateData_xyz_pr</item>
+            <item>Client::onUpdateData_xyz_ypr</item>
+        </disables>
+    </trace_packet>
+    <!-- Whether to output debugging information such as entity creation, script acquisition properties, and initialization properties -->
+    <debugEntity>0</debugEntity>
+    <debugMessage>1</debugMessage>
+    <publish>
+        <!-- Publish status, this value can be obtained in the script. KBEngine.publish()
+			(apps released state, This value can be obtained in the script. KBEngine.publish())
+			Type: Integer8
+			0 : debug
+			1 : release
+			Other customization(Other custom)
+		-->
+        <state>0</state>
+        <!-- Version number released by the script layer
+			(Script layer released version number)
+		 -->
+        <script_version>0.1.0</script_version>
+    </publish>
+    <!-- Send and receive window overflow value, 0 unlimited
+		(the value of the send/receive window overflow, 0 is unlimited)
+	-->
+    <windowOverflow>
+        <send>
+            <!-- Overflow limit on the number of bytes sent in a tick
+				(A tick, the value of the sent window overflow, 0 is unlimited)
+			-->
+            <tickSentBytes>
+                <internal>0</internal>
+                <external>0</external>
+            </tickSentBytes>
+            <messages>
+                <critical>1024</critical>
+                <internal>65535</internal>
+                <external>512</external>
+            </messages>
+            <bytes>
+                <internal>0</internal>
+                <external>1048576</external>
+            </bytes>
+        </send>
+        <receive>
+            <messages>
+                <critical>24</critical>
+                <internal>65535</internal>
+                <external>32</external>
+            </messages>
+            <bytes>
+                <internal>0</internal>
+                <external>2048</external>
+            </bytes>
+        </receive>
+    </windowOverflow>
+    <!--<ip> osboxes </ip>-->
+    <ip>localhost</ip>
+    <port>20013</port>
+    <!-- If occupied, try 51001 backwards. -->
+    <telnet_service>
+        <port>51000</port>
+        <password>kbe</password>
+        <!-- Command default layer -->
+        <default_layer>python</default_layer>
+    </telnet_service>
+    <entryScriptFile>kbemain</entryScriptFile>
+    <useLastAccountName>true</useLastAccountName>
+    <accountName>kbengine</accountName>
+    <!-- Encrypted login information
+		Optional encryption:
+			0: No encryption
+			1: blowfish
+			2: rsa (res\key\kbengine_private.key)
+	 -->
+    <encrypt_login>2</encrypt_login>
+    <!-- Optimize EntityID, less than 255 EntityID in aoi range, use 1-byte alias ID when transmitting to client -->
+    <aliasEntityID>true</aliasEntityID>
+    <!-- Optimize the bandwidth occupied by entity attributes and methods when broadcasting. When the entity client attributes or clients do not exceed 255,
+The method uid and attribute uid are transmitted to the client using a 1-byte alias ID -->
+    <entitydefAliasID>true</entitydefAliasID>
+    <!-- Whether to trigger the set_* event of the property when the Entity is initialized -->
+    <isOnInitCallPropertysSetMethods>true</isOnInitCallPropertysSetMethods>
+</root>
