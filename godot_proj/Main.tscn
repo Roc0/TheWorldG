@@ -38,6 +38,10 @@ margin_left = 380.0
 margin_top = 224.0
 margin_right = 564.0
 margin_bottom = 256.0
+text = "KBEngine"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="passwordEdit" type="LineEdit" parent="UI/LoginPanel"]
 margin_left = 380.0
@@ -59,6 +63,28 @@ text = "Login"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Message" type="Label" parent="UI/LoginPanel"]
+margin_left = 77.0
+margin_top = 420.0
+margin_right = 956.0
+margin_bottom = 450.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AvatarPanel" type="Panel" parent="UI"]
+margin_right = 1081.0
+margin_bottom = 642.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ItemList" type="ItemList" parent="UI/AvatarPanel"]
+margin_left = 310.0
+margin_top = 260.0
+margin_right = 692.0
+margin_bottom = 376.0
 
 [node name="World" type="Spatial" parent="."]
 

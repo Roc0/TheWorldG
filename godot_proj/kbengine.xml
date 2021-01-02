@@ -113,7 +113,7 @@ If there are variable string parameters, you must bring length information -->
     </telnet_service>
     <entryScriptFile>kbemain</entryScriptFile>
     <useLastAccountName>true</useLastAccountName>
-    <accountName>kbengine</accountName>
+    <accountName>KBEngine</accountName>
     <!-- Encrypted login information
 		Optional encryption:
 			0: No encryption
