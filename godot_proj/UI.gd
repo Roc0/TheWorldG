@@ -17,9 +17,11 @@ func set_game_state(state):
 	if state == STATE_LOGIN:
 		game_state = state
 		info("")
+		$LoginPanel.rect_size = get_viewport_rect().size
 		$LoginPanel.show()
 		$AvatarPanel.hide()
 		get_node("../World").hide()
+		get_node("../World/WorldLogoutButton").hide()
 	elif state == STATE_AVATAR:
 		game_state = state
 		avatars_collected = false
@@ -30,22 +32,35 @@ func set_game_state(state):
 		clear_avatar_list()
 		$AvatarPanel/AvatarNameTextEdit.hide()
 		$AvatarPanel/CreateButton.hide()
+		$AvatarPanel.rect_size = get_viewport_rect().size
 		$LoginPanel.hide()
 		$AvatarPanel.show()
 		get_node("../World").hide()
+		get_node("../World/WorldLogoutButton").hide()
 	elif state == STATE_WORLD:
 		game_state = state
 		$LoginPanel.hide()
 		$AvatarPanel.hide()
 		get_node("../World").show()
+		#get_node("../World/WorldLogoutButton").rect_position.x = 
+		var b = get_node("../World/WorldLogoutButton")
+		b.show()
+		b.rect_position.y = get_viewport_rect().size.y - b.rect_size.y - 10
+		b.rect_position.x = get_viewport_rect().size.x - b.rect_size.x - 10
+		info("")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_tree().get_root().connect("size_changed", self, "resizing")
+	
 	var result = Client.client_app.connect("login_success", self, "login_success", [])
 	result = Client.client_app.connect("login_failed", self, "login_failed", [])
 	result = Client.client_app.connect("server_closed", self, "server_closed", [])
 	result = Client.client_app.connect("kicked_from_server", self, "kicked_from_server", [])
 	result = Client.client_app.connect("update_avatars", self, "update_avatars", [])
+	result = Client.client_app.connect("player_enter_space", self, "player_enter_space", [])
+	result = Client.client_app.connect("player_leave_space", self, "player_leave_space", [])
+	result = Client.client_app.connect("add_space_geomapping", self, "add_space_geomapping", [])
 	set_game_state(STATE_LOGIN)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -62,6 +77,9 @@ func _process(_delta):
 	if game_state == STATE_AVATAR:
 		if !avatars_collected:
 			populate_avatar_list()
+			
+	#if game_state == STATE_WORLD:
+	#	print("game_state: STATE_WORLD")
 
 	#if Client.client_app.get_app_mode() == ClientApp_AppMode_InitialMenu:
 		#if client_app.get_login_status() == ClientApp_Login_NotDone:
@@ -157,8 +175,15 @@ func _on_logoutButton_pressed():
 
 
 func _on_EnterGameButton_pressed():
-	pass # Replace with function body.
-
+	if sel_avatar_id == 0:
+		err("Please select an Avatar!")
+	else:
+		info("")
+		var result = Client.client_app.enter_game(sel_avatar_id)
+		if result:
+			info("Entering game ...")
+		else:
+			err("Enter game failed!")
 
 func _on_CreateAvatarButton_pressed():
 	$AvatarPanel/AvatarNameTextEdit.show()
@@ -199,3 +224,32 @@ func _on_CreateButton_pressed():
 
 func update_avatars():
 	avatars_collected = false
+
+func player_enter_space(space_id):
+	set_game_state(STATE_WORLD)
+		
+func player_leave_space(space_id):
+	pass
+	
+func add_space_geomapping(space_id, res_path):
+	var mesh = load("res://Meshes/" + res_path + "/undulating1.obj")
+	var terrain = get_node("../World/Terrain")
+	terrain.set_mesh(mesh)
+	#pass
+
+
+func _on_WorldLogoutButton_pressed():
+	var result = Client.client_app.logout()
+	Client.account_name = ""
+	set_game_state(STATE_LOGIN)
+
+func resizing():
+	#print("Resizing: ", get_viewport_rect().size)
+	if game_state == STATE_LOGIN:
+		$LoginPanel.rect_size = get_viewport_rect().size
+	elif game_state == STATE_AVATAR:
+		$AvatarPanel.rect_size = get_viewport_rect().size
+	elif game_state == STATE_WORLD:
+		var b = get_node("../World/WorldLogoutButton")
+		b.rect_position.y = get_viewport_rect().size.y - b.rect_size.y - 10
+		b.rect_position.x = get_viewport_rect().size.x - b.rect_size.x - 10
