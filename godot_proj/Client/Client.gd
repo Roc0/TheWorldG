@@ -17,6 +17,9 @@ const ClientApp_Login_Done = 2
 var time_from_last_process = 0
 const Time_Period_Process = 0.001	# 1 millisecond
 
+var account_name = ""
+var avatar_name = ""
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print(self.name + ": _ready")

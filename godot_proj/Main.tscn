@@ -33,17 +33,17 @@ margin_right = 347.0
 margin_bottom = 306.0
 text = "Password:"
 
-[node name="usernameEdit" type="LineEdit" parent="UI/LoginPanel"]
+[node name="UsernameEdit" type="LineEdit" parent="UI/LoginPanel"]
 margin_left = 380.0
 margin_top = 224.0
 margin_right = 564.0
 margin_bottom = 256.0
-text = "KBEngine"
+text = "KBEngineG"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="passwordEdit" type="LineEdit" parent="UI/LoginPanel"]
+[node name="PasswordEdit" type="LineEdit" parent="UI/LoginPanel"]
 margin_left = 380.0
 margin_top = 282.0
 margin_right = 564.0
@@ -54,7 +54,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="loginButton" type="Button" parent="UI/LoginPanel"]
+[node name="LoginButton" type="Button" parent="UI/LoginPanel"]
 margin_left = 424.0
 margin_top = 348.0
 margin_right = 517.0
@@ -80,15 +80,91 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ItemList" type="ItemList" parent="UI/AvatarPanel"]
-margin_left = 310.0
-margin_top = 260.0
-margin_right = 692.0
-margin_bottom = 376.0
+[node name="AvatarList" type="Control" parent="UI/AvatarPanel"]
+margin_left = 89.0
+margin_top = 201.0
+margin_right = 471.0
+margin_bottom = 402.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AvatarNameLabel" type="Label" parent="UI/AvatarPanel"]
+margin_left = 89.0
+margin_top = 76.0
+margin_right = 380.0
+margin_bottom = 99.0
+
+[node name="LogoutButton" type="Button" parent="UI/AvatarPanel"]
+margin_left = 534.0
+margin_top = 440.0
+margin_right = 659.0
+margin_bottom = 473.0
+text = "Logout"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="EnterGameButton" type="Button" parent="UI/AvatarPanel"]
+margin_left = 534.0
+margin_top = 376.0
+margin_right = 659.0
+margin_bottom = 409.0
+text = "Entere Game"
+
+[node name="CreateAvatarButton" type="Button" parent="UI/AvatarPanel"]
+margin_left = 534.0
+margin_top = 131.0
+margin_right = 659.0
+margin_bottom = 164.0
+text = "Create Avatar"
+
+[node name="RemoveAvatarButton" type="Button" parent="UI/AvatarPanel"]
+margin_left = 534.0
+margin_top = 186.0
+margin_right = 659.0
+margin_bottom = 219.0
+text = "Remove Avatar"
+
+[node name="Message" type="Label" parent="UI/AvatarPanel"]
+margin_left = 106.0
+margin_top = 526.0
+margin_right = 985.0
+margin_bottom = 556.0
+
+[node name="AvatarNameTextEdit" type="TextEdit" parent="UI/AvatarPanel"]
+margin_left = 684.0
+margin_top = 140.0
+margin_right = 914.0
+margin_bottom = 161.0
+
+[node name="CreateButton" type="Button" parent="UI/AvatarPanel"]
+margin_left = 928.0
+margin_top = 131.0
+margin_right = 998.0
+margin_bottom = 164.0
+text = "Create"
+
+[node name="AccountNameLabel" type="Label" parent="UI/AvatarPanel"]
+margin_left = 89.0
+margin_top = 47.0
+margin_right = 380.0
+margin_bottom = 71.0
+
+[node name="Message" type="Label" parent="UI"]
+margin_left = 77.0
+margin_top = 526.0
+margin_right = 974.0
+margin_bottom = 556.0
 
 [node name="World" type="Spatial" parent="."]
 
 [node name="Terrain" type="MeshInstance" parent="World"]
 mesh = ExtResource( 1 )
 material/0 = null
-[connection signal="pressed" from="UI/LoginPanel/loginButton" to="UI" method="_on_loginButton_pressed"]
+[connection signal="pressed" from="UI/LoginPanel/LoginButton" to="UI" method="_on_loginButton_pressed"]
+[connection signal="pressed" from="UI/AvatarPanel/LogoutButton" to="UI" method="_on_logoutButton_pressed"]
+[connection signal="pressed" from="UI/AvatarPanel/EnterGameButton" to="UI" method="_on_EnterGameButton_pressed"]
+[connection signal="pressed" from="UI/AvatarPanel/CreateAvatarButton" to="UI" method="_on_CreateAvatarButton_pressed"]
+[connection signal="pressed" from="UI/AvatarPanel/RemoveAvatarButton" to="UI" method="_on_RemoveAvatarButton_pressed"]
+[connection signal="pressed" from="UI/AvatarPanel/CreateButton" to="UI" method="_on_CreateButton_pressed"]
