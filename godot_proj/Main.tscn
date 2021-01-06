@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Meshes/spaces/xinshoucun/undulating1.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://UI.gd" type="Script" id=2]
+[ext_resource path="res://World.gd" type="Script" id=3]
 
 [node name="Main" type="Node"]
 
@@ -153,6 +154,9 @@ margin_left = 89.0
 margin_top = 47.0
 margin_right = 380.0
 margin_bottom = 71.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Message" type="Label" parent="UI"]
 margin_left = 77.0
@@ -161,6 +165,7 @@ margin_right = 974.0
 margin_bottom = 556.0
 
 [node name="World" type="Spatial" parent="."]
+script = ExtResource( 3 )
 
 [node name="Terrain" type="MeshInstance" parent="World"]
 mesh = ExtResource( 1 )

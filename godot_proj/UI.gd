@@ -41,13 +41,16 @@ func set_game_state(state):
 		game_state = state
 		$LoginPanel.hide()
 		$AvatarPanel.hide()
-		get_node("../World").show()
+		var w = get_node("../World")
+		w.show()
 		#get_node("../World/WorldLogoutButton").rect_position.x = 
+		# position Logout Button
 		var b = get_node("../World/WorldLogoutButton")
 		b.show()
 		b.rect_position.y = get_viewport_rect().size.y - b.rect_size.y - 10
 		b.rect_position.x = get_viewport_rect().size.x - b.rect_size.x - 10
 		info("")
+		w.enter_world()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -232,10 +235,7 @@ func player_leave_space(space_id):
 	pass
 	
 func add_space_geomapping(space_id, res_path):
-	var mesh = load("res://Meshes/" + res_path + "/undulating1.obj")
-	var terrain = get_node("../World/Terrain")
-	terrain.set_mesh(mesh)
-	#pass
+	pass
 
 
 func _on_WorldLogoutButton_pressed():
