@@ -15,11 +15,24 @@ func _ready():
 func enter_world():
 	space_world.say("enter_world")
 	
-	var mesh = load("res://Meshes/spaces/xinshoucun/undulating1.obj")
-	var terrain = get_node("./Terrain")
-	terrain.set_mesh(mesh)
+	#get_node("../World/WorldLogoutButton").rect_position.x = 
+	# position Logout Button
+	var cam = get_node("./Camera")
+	#cam.set_enabled(true)
+	cam.far = 1000
+	cam.mouse_mode = 2
 
-	var b = space_world.setup_world(self)
+	#var mesh = load("res://Meshes/spaces/xinshoucun/undulating1.obj")
+	#var terrain = get_node("./Terrain")
+	#terrain.set_mesh(mesh)
+
+	var bret = space_world.setup_world(self)
 	
 	var t = get_node("./TerrainMesh")
 	print(t.name)
+		
+	var WorldCamera = get_node("./WorldCamera")
+	print(WorldCamera.name)
+
+func exit_world():
+	space_world.say("exit_world")

@@ -4,5 +4,5 @@
 
 [resource]
 resource_name = "ClientDll"
-class_name = "TheWorld_GD_ClientApp"
+class_name = "GD_ClientApp"
 library = ExtResource( 1 )

@@ -22,6 +22,8 @@ func set_game_state(state):
 		$AvatarPanel.hide()
 		get_node("../World").hide()
 		get_node("../World/WorldLogoutButton").hide()
+		#get_node("../World/Camera").set_enabled(false)
+		get_node("../World/Camera").mouse_mode = 0
 	elif state == STATE_AVATAR:
 		game_state = state
 		avatars_collected = false
@@ -37,14 +39,14 @@ func set_game_state(state):
 		$AvatarPanel.show()
 		get_node("../World").hide()
 		get_node("../World/WorldLogoutButton").hide()
+		#get_node("../World/Camera").set_enabled(false)
+		get_node("../World/Camera").mouse_mode = 0
 	elif state == STATE_WORLD:
 		game_state = state
 		$LoginPanel.hide()
 		$AvatarPanel.hide()
 		var w = get_node("../World")
 		w.show()
-		#get_node("../World/WorldLogoutButton").rect_position.x = 
-		# position Logout Button
 		var b = get_node("../World/WorldLogoutButton")
 		b.show()
 		b.rect_position.y = get_viewport_rect().size.y - b.rect_size.y - 10
@@ -239,6 +241,8 @@ func add_space_geomapping(space_id, res_path):
 
 
 func _on_WorldLogoutButton_pressed():
+	var w = get_node("../World")
+	w.exit_world()
 	var result = Client.client_app.logout()
 	Client.account_name = ""
 	set_game_state(STATE_LOGIN)
