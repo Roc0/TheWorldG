@@ -177,9 +177,11 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Camera" type="Camera" parent="World"]
+[node name="CameraTest" type="Camera" parent="World"]
 far = 1000.0
 script = ExtResource( 1 )
+
+[node name="TerrainTest" type="MeshInstance" parent="World"]
 [connection signal="pressed" from="UI/LoginPanel/LoginButton" to="UI" method="_on_loginButton_pressed"]
 [connection signal="pressed" from="UI/AvatarPanel/LogoutButton" to="UI" method="_on_logoutButton_pressed"]
 [connection signal="pressed" from="UI/AvatarPanel/EnterGameButton" to="UI" method="_on_EnterGameButton_pressed"]

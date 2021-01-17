@@ -13,26 +13,39 @@ func _ready():
 #	pass
 
 func enter_world():
-	space_world.say("enter_world")
+	space_world.say("enter_world - start")
 	
-	#get_node("../World/WorldLogoutButton").rect_position.x = 
-	# position Logout Button
-	var cam = get_node("./Camera")
-	#cam.set_enabled(true)
-	cam.far = 1000
-	cam.mouse_mode = 2
+	var ret = space_world.enter_world(self)
 
-	#var mesh = load("res://Meshes/spaces/xinshoucun/undulating1.obj")
-	#var terrain = get_node("./Terrain")
-	#terrain.set_mesh(mesh)
-
-	var bret = space_world.setup_world(self)
-	
+	# Debug
 	var t = get_node("./TerrainMesh")
 	print(t.name)
-		
-	var WorldCamera = get_node("./WorldCamera")
+
+	# Debug
+	var WorldCamera : Camera = get_node("./WorldCamera")
 	print(WorldCamera.name)
+	#WorldCamera.make_current()
+
+	# Debug CameraTest & TerrainTest 
+	var mesh = load("res://Meshes/spaces/xinshoucun/undulating1.obj")
+	var terrain = get_node("./TerrainTest")
+	terrain.set_mesh(mesh)
+	var cam = get_node("./CameraTest")
+	cam.far = 1000
+	cam.mouse_mode = 2
+	var terrain_mesh = space_world.get_mesh_instance()
+	var aabb : AABB = terrain_mesh.get_aabb()
+	var starting_point : Vector3 = aabb.position
+	var ending_point : Vector3 = aabb.position + aabb.size
+	cam.set_perspective(45, 1.0, 1000.0)
+	var offset = sqrt( (aabb.size.x * aabb.size.x) + (aabb.size.y * aabb.size.y) + (aabb.size.z * aabb.size.z) ) / 2
+	var camera_pos = Vector3( (ending_point.x + starting_point.x) / 2 + offset, (ending_point.y + starting_point.y) / 2 + offset, (ending_point.z + starting_point.z) / 2 + offset)
+	cam.transform.origin = camera_pos
+	# Debug CameraTest & TerrainTest
+	
+	print("enter_world - end")
 
 func exit_world():
-	space_world.say("exit_world")
+	space_world.say("exit_world - start")
+	var ret = space_world.exit_world(self)
+	space_world.say("exit_world - end")

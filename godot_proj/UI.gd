@@ -22,8 +22,7 @@ func set_game_state(state):
 		$AvatarPanel.hide()
 		get_node("../World").hide()
 		get_node("../World/WorldLogoutButton").hide()
-		#get_node("../World/Camera").set_enabled(false)
-		get_node("../World/Camera").mouse_mode = 0
+		get_node("../World/CameraTest").mouse_mode = 0
 	elif state == STATE_AVATAR:
 		game_state = state
 		avatars_collected = false
@@ -39,8 +38,7 @@ func set_game_state(state):
 		$AvatarPanel.show()
 		get_node("../World").hide()
 		get_node("../World/WorldLogoutButton").hide()
-		#get_node("../World/Camera").set_enabled(false)
-		get_node("../World/Camera").mouse_mode = 0
+		get_node("../World/CameraTest").mouse_mode = 0
 	elif state == STATE_WORLD:
 		game_state = state
 		$LoginPanel.hide()
