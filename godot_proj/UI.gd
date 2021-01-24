@@ -52,6 +52,9 @@ func set_game_state(state):
 		info("")
 		w.enter_world()
 
+func is_in_world_state() -> bool:
+	return (game_state == STATE_WORLD)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	get_tree().get_root().connect("size_changed", self, "resizing")
@@ -89,6 +92,29 @@ func _process(_delta):
 		#elif client_app.get_login_status() == ClientApp_Login_Started:
 		#elif client_app.get_login_status() == ClientApp_Login_Done:
 	#elif Client.client_app.get_app_mode() == ClientApp_AppMode_World:
+
+func _input(event):
+	#print("UI: " + event.as_text())
+	# Shortcut for debug
+	if event.is_action_pressed("ui_cancel"):
+		if not is_in_world_state():
+			get_tree().set_input_as_handled()
+			quit_app()
+	if event.is_action_pressed("ui_jump_to_world"):
+		set_game_state(STATE_WORLD)
+
+func _notification(what):
+	if (what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST):
+		quit_app()
+
+func quit_app() -> void:
+	if is_in_world_state():
+		var w = get_node("../World")
+		w.exit_world()
+		logout_from_server()
+		#set_game_state(STATE_LOGIN)
+	info ("Quitting ...")
+	get_tree().quit()
 
 func _on_loginButton_pressed():
 	var s = "TheWorld"
@@ -171,11 +197,15 @@ class AvatarButton extends Button:
 			ui.sel_avatar_name = ""
 			ui.sel_avatar_id = 0
 
-func _on_logoutButton_pressed():
+func logout_from_server() -> bool:
 	var result = Client.client_app.logout()
 	Client.account_name = ""
-	set_game_state(STATE_LOGIN)
+	return result
 
+func _on_logoutButton_pressed():
+	if not is_in_world_state():
+		var result = logout_from_server()
+		set_game_state(STATE_LOGIN)
 
 func _on_EnterGameButton_pressed():
 	if sel_avatar_id == 0:
@@ -239,11 +269,11 @@ func add_space_geomapping(space_id, res_path):
 
 
 func _on_WorldLogoutButton_pressed():
-	var w = get_node("../World")
-	w.exit_world()
-	var result = Client.client_app.logout()
-	Client.account_name = ""
-	set_game_state(STATE_LOGIN)
+	if is_in_world_state():
+		var w = get_node("../World")
+		w.exit_world()
+		var result = logout_from_server()
+		set_game_state(STATE_LOGIN)
 
 func resizing():
 	#print("Resizing: ", get_viewport_rect().size)

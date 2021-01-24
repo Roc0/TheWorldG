@@ -12,6 +12,16 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func _input(event):
+	#print("World: " + event.as_text())
+	# Shortcut for debug
+	if event.is_action_pressed("ui_cancel"):
+		if ui.is_in_world_state():
+			get_tree().set_input_as_handled()
+			exit_world()
+			ui.logout_from_server()
+			ui.set_game_state(ui.STATE_LOGIN)
+
 func enter_world():
 	space_world.say("enter_world - start")
 	

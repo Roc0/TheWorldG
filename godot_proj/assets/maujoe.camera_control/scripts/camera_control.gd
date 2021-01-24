@@ -34,7 +34,8 @@ export var down_action = "ui_page_down"
 
 # Gui settings
 export var use_gui = true
-export var gui_action = "ui_cancel"
+#export var gui_action = "ui_cancel"
+export var gui_action = "gui_camera_action"
 
 # Intern variables.
 var _mouse_position = Vector2(0.0, 0.0)
