@@ -20,6 +20,8 @@ func set_game_state(state):
 		$LoginPanel.rect_size = get_viewport_rect().size
 		$LoginPanel.show()
 		$AvatarPanel.hide()
+		$Message.rect_position.x = 10
+		$Message.rect_position.y = get_viewport_rect().size.y - $Message.rect_size.y - 10
 		get_node("../World").hide()
 		get_node("../World/WorldLogoutButton").hide()
 		get_node("../World/DebugText").hide()
@@ -30,6 +32,8 @@ func set_game_state(state):
 		sel_avatar_id = 0
 		$AvatarPanel/AccountNameLabel.text	= "Account: " + Client.account_name
 		$AvatarPanel/AvatarNameLabel.text = ""
+		$Message.rect_position.x = 10
+		$Message.rect_position.y = get_viewport_rect().size.y - $Message.rect_size.y - 10
 		sel_avatar_name = ""
 		clear_avatar_list()
 		$AvatarPanel/AvatarNameTextEdit.hide()
@@ -45,8 +49,11 @@ func set_game_state(state):
 		game_state = state
 		$LoginPanel.hide()
 		$AvatarPanel.hide()
+		$Message.rect_position.x = 10
+		$Message.rect_position.y = get_viewport_rect().size.y - $Message.rect_size.y - 10
 		var w = get_node("../World")
 		w.show()
+		OS.window_maximized = true
 		var b = get_node("../World/WorldLogoutButton")
 		b.show()
 		b.rect_position.y = get_viewport_rect().size.y - b.rect_size.y - 10
@@ -108,6 +115,9 @@ func _input(event):
 			quit_app()
 	if event.is_action_pressed("ui_jump_to_world"):
 		set_game_state(STATE_WORLD)
+	if event.is_action_pressed("ui_toggle_fullscreen"):
+		get_tree().set_input_as_handled()
+		OS.window_fullscreen = !OS.window_fullscreen
 
 func _notification(what):
 	if (what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST):
@@ -116,6 +126,7 @@ func _notification(what):
 func quit_app() -> void:
 	if is_in_world_state():
 		var w = get_node("../World")
+		w.hide()
 		w.exit_world()
 		logout_from_server()
 		#set_game_state(STATE_LOGIN)
@@ -285,12 +296,16 @@ func resizing():
 	#print("Resizing: ", get_viewport_rect().size)
 	if game_state == STATE_LOGIN:
 		$LoginPanel.rect_size = get_viewport_rect().size
+		$Message.rect_position.x = 10
+		$Message.rect_position.y = get_viewport_rect().size.y - $Message.rect_size.y - 10
 	elif game_state == STATE_AVATAR:
 		$AvatarPanel.rect_size = get_viewport_rect().size
+		$Message.rect_position.x = 10
+		$Message.rect_position.y = get_viewport_rect().size.y - $Message.rect_size.y - 10
 	elif game_state == STATE_WORLD:
 		var b = get_node("../World/WorldLogoutButton")
-		b.rect_position.y = get_viewport_rect().size.y - b.rect_size.y - 10
 		b.rect_position.x = get_viewport_rect().size.x - b.rect_size.x - 10
+		b.rect_position.y = get_viewport_rect().size.y - b.rect_size.y - 10
 		b = get_node("../World/DebugText")
-		b.rect_position.y = 10
 		b.rect_position.x = 10
+		b.rect_position.y = 10

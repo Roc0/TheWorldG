@@ -6,6 +6,8 @@ var debug_text
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	get_tree().get_root().connect("size_changed", self, "resizing")
+
 	ui = get_node("../UI")
 	space_world = Client.client_app.get_space_world()
 
@@ -29,9 +31,16 @@ func enter_world():
 	var ret = space_world.enter_world(self)
 
 	debug_text = get_node("./DebugText")
-	var lbl : Label = Label.new()
-	lbl.name = "LabelCamRot"
-	debug_text.add_child(lbl)
+	var lblCamRot : Label = Label.new()
+	lblCamRot.name = "LabelCamRot"
+	debug_text.add_child(lblCamRot)
+	lblCamRot.rect_position.x = 0
+	lblCamRot.rect_position.y = 0
+	var lblCamPos : Label = Label.new()
+	lblCamPos.name = "LabelCamPos"
+	debug_text.add_child(lblCamPos)
+	lblCamPos.rect_position.x = lblCamRot.rect_position.x
+	lblCamPos.rect_position.y = lblCamRot.rect_position.y + lblCamRot.rect_size.y
 	
 	# Debug
 	var t = get_node("./TerrainMesh")
@@ -67,8 +76,20 @@ func exit_world():
 	space_world.say("exit_world - end")
 
 func _process(_delta):
-	var lbl = get_node_or_null("./DebugText/LabelCamRot")
-	if lbl != null:
-		var world_camera : Camera = get_node_or_null("./WorldCamera")
-		if world_camera != null:
-			lbl.text = "Cam Rot: " + str(world_camera.rotation.x) + " " + str(world_camera.rotation.y) + " " + str(world_camera.rotation.z)
+	var world_camera : Camera = get_node_or_null("./WorldCamera")
+	if world_camera != null:
+		var lblCamRot = get_node_or_null("./DebugText/LabelCamRot")
+		var lblCamPos = get_node_or_null("./DebugText/LabelCamPos")
+		if lblCamRot != null and lblCamPos != null:
+			lblCamRot.text = "Cam Rot: " + str(world_camera.rotation.x) + " " + str(world_camera.rotation.y) + " " + str(world_camera.rotation.z)
+			lblCamPos.text = "Cam Pos: " + str(world_camera.transform.origin.x) + " " + str(world_camera.transform.origin.y) + " " + str(world_camera.transform.origin.z)
+
+func resizing():
+	var lblCamRot = get_node_or_null("./DebugText/LabelCamRot")
+	var lblCamPos = get_node_or_null("./DebugText/LabelCamPos")
+	if lblCamRot != null and lblCamPos != null:
+		lblCamRot.rect_position.x = 0
+		lblCamRot.rect_position.y = 0
+		lblCamPos.rect_position.x = lblCamRot.rect_position.x
+		lblCamPos.rect_position.y = lblCamRot.rect_position.y + lblCamRot.rect_size.y
+			
