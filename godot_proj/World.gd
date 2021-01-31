@@ -28,7 +28,7 @@ func _input(event):
 func enter_world():
 	space_world.say("enter_world - start")
 	
-	var ret = space_world.enter_world(self)
+	var ret = space_world.enter_world()
 
 	debug_text = get_node("./DebugText")
 	var lblCamRot : Label = Label.new()
@@ -72,7 +72,7 @@ func enter_world():
 
 func exit_world():
 	space_world.say("exit_world - start")
-	var ret = space_world.exit_world(self)
+	var ret = space_world.exit_world()
 	space_world.say("exit_world - end")
 
 func _process(_delta):

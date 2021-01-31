@@ -16,6 +16,7 @@ var sel_avatar_id = 0
 func set_game_state(state):
 	if state == STATE_LOGIN:
 		game_state = state
+		Client.client_app.set_app_mode(Client.ClientApp_AppMode_InitialMenu, false)
 		info("")
 		$LoginPanel.rect_size = get_viewport_rect().size
 		$LoginPanel.show()
@@ -25,9 +26,10 @@ func set_game_state(state):
 		get_node("../World").hide()
 		get_node("../World/WorldLogoutButton").hide()
 		get_node("../World/DebugText").hide()
-		get_node("../World/CameraTest").mouse_mode = 0
+		#get_node("../World/CameraTest").mouse_mode = 0
 	elif state == STATE_AVATAR:
 		game_state = state
+		Client.client_app.set_app_mode(Client.ClientApp_AppMode_InitialMenu, false)
 		avatars_collected = false
 		sel_avatar_id = 0
 		$AvatarPanel/AccountNameLabel.text	= "Account: " + Client.account_name
@@ -44,9 +46,10 @@ func set_game_state(state):
 		get_node("../World").hide()
 		get_node("../World/WorldLogoutButton").hide()
 		get_node("../World/DebugText").hide()
-		get_node("../World/CameraTest").mouse_mode = 0
+		#get_node("../World/CameraTest").mouse_mode = 0
 	elif state == STATE_WORLD:
 		game_state = state
+		Client.client_app.set_app_mode(Client.ClientApp_AppMode_World, false)
 		$LoginPanel.hide()
 		$AvatarPanel.hide()
 		$Message.rect_position.x = 10
@@ -76,6 +79,14 @@ func _ready():
 	result = Client.client_app.connect("login_failed", self, "login_failed", [])
 	result = Client.client_app.connect("server_closed", self, "server_closed", [])
 	result = Client.client_app.connect("kicked_from_server", self, "kicked_from_server", [])
+
+	result = Client.client_app.connect("clear_entities", self, "clear_entities", [])
+	result = Client.client_app.connect("created_entity", self, "created_entity", [])
+	result = Client.client_app.connect("erase_entity", self, "erase_entity", [])
+	result = Client.client_app.connect("clear_avatars", self, "clear_avatars", [])
+	result = Client.client_app.connect("erase_avatar", self, "erase_avatar", [])
+
+
 	result = Client.client_app.connect("update_avatars", self, "update_avatars", [])
 	result = Client.client_app.connect("player_enter_space", self, "player_enter_space", [])
 	result = Client.client_app.connect("player_leave_space", self, "player_leave_space", [])
@@ -159,6 +170,21 @@ func server_closed():
 func kicked_from_server():
 	err("Client kicked from server!")
 	set_game_state(STATE_LOGIN)
+
+func clear_entities():
+	pass
+
+func created_entity(id, player):
+	pass
+
+func erase_entity(id):
+	pass
+
+func clear_avatars():
+	pass
+
+func erase_avatar(id):
+	pass
 
 func clear_avatar_list():
 	sel_avatar_id = 0
@@ -287,6 +313,13 @@ func add_space_geomapping(space_id, res_path):
 
 func _on_WorldLogoutButton_pressed():
 	if is_in_world_state():
+		#var n = get_node("/root/Main/World")
+		#var a = n.get_children()
+		#var s = a.size()
+		#n = get_node("/root/Main/World/OtherEntities")
+		#a = n.get_children()
+		#s = a.size()
+		
 		var w = get_node("../World")
 		w.exit_world()
 		var result = logout_from_server()
@@ -309,3 +342,5 @@ func resizing():
 		b = get_node("../World/DebugText")
 		b.rect_position.x = 10
 		b.rect_position.y = 10
+		$Message.rect_position.x = 10
+		$Message.rect_position.y = get_viewport_rect().size.y - $Message.rect_size.y - 10
