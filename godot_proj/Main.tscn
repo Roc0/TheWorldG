@@ -185,6 +185,8 @@ margin_bottom = 99.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Entities" type="Spatial" parent="World"]
 [connection signal="pressed" from="UI/LoginPanel/LoginButton" to="UI" method="_on_loginButton_pressed"]
 [connection signal="pressed" from="UI/AvatarPanel/LogoutButton" to="UI" method="_on_logoutButton_pressed"]
 [connection signal="pressed" from="UI/AvatarPanel/EnterGameButton" to="UI" method="_on_EnterGameButton_pressed"]
