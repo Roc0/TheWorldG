@@ -83,6 +83,15 @@ func _process(_delta):
 		if lblCamRot != null and lblCamPos != null:
 			lblCamRot.text = "Cam Rot: " + str(world_camera.rotation.x) + " " + str(world_camera.rotation.y) + " " + str(world_camera.rotation.z)
 			lblCamPos.text = "Cam Pos: " + str(world_camera.transform.origin.x) + " " + str(world_camera.transform.origin.y) + " " + str(world_camera.transform.origin.z)
+	# DEBUG
+	var entities : Spatial = get_node("./Entities")
+	for entity in (entities.get_children()):
+		var e : RigidBody = entity.get_node("Entity")
+		var n = e.name
+		var p = e.get_position_in_parent()
+		var o = e.transform.origin
+		var b = e.transform.basis
+	# DEBUG
 
 func resizing():
 	var lblCamRot = get_node_or_null("./DebugText/LabelCamRot")
