@@ -36,8 +36,9 @@ func _ready():
 	
 	var result = connect("tree_exiting", self, "exitFunct",[])
 	
+	var m = get_tree().get_root().get_node("Main")
 	var w = get_tree().get_root().get_node("Main/World")
-	result = client_app.init(w)
+	result = client_app.init(w, m)
 	client_app.set_app_mode(ClientApp_AppMode_InitialMenu, false)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
