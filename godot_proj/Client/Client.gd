@@ -19,10 +19,14 @@ const Time_Period_Process = 0.001	# 1 millisecond
 
 var account_name = ""
 var avatar_name = ""
+var debug_enabled : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	print(self.name + ": _ready")
+	
+	client_app.set_debug_enabled(debug_enabled)
+	
 	#client_app.say(ClientApp.hello("Test", "1", 2))
 	#add_child(ClientApp) # to activate TheWorld_GD_ClientApp::_ready & TheWorld_GD_ClientApp::_process
 	

@@ -21,5 +21,8 @@ material/0 = SubResource( 2 )
 [node name="CollisionShape" type="CollisionShape" parent="."]
 shape = SubResource( 3 )
 
-[node name="Camera" type="Camera" parent="."]
+[node name="CameraDebug" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.816037, 0.578, 0, -0.578, 0.816037, 0, 4.787, 5.78 )
+
+[node name="CameraPos" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.816037, 0.578, 0, -0.578, 0.816037, 0, 4.787, 5.78 )

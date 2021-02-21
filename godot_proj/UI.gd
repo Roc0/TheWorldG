@@ -25,7 +25,10 @@ func set_game_state(state):
 		$Message.rect_position.y = get_viewport_rect().size.y - $Message.rect_size.y - 10
 		get_node("../World").hide()
 		get_node("../World/WorldLogoutButton").hide()
-		get_node("../World/DebugText").hide()
+		if Client.debug_enabled:
+			var d = get_node_or_null("../World/DebugText")
+			if d != null:
+				d.hide()
 		#get_node("../World/CameraTest").mouse_mode = 0
 	elif state == STATE_AVATAR:
 		game_state = state
@@ -45,7 +48,10 @@ func set_game_state(state):
 		$AvatarPanel.show()
 		get_node("../World").hide()
 		get_node("../World/WorldLogoutButton").hide()
-		get_node("../World/DebugText").hide()
+		if Client.debug_enabled:
+			var d = get_node_or_null("../World/DebugText")
+			if d != null:
+				d.hide()
 		#get_node("../World/CameraTest").mouse_mode = 0
 	elif state == STATE_WORLD:
 		game_state = state
@@ -61,10 +67,12 @@ func set_game_state(state):
 		b.show()
 		b.rect_position.y = get_viewport_rect().size.y - b.rect_size.y - 10
 		b.rect_position.x = get_viewport_rect().size.x - b.rect_size.x - 10
-		b = get_node("../World/DebugText")
-		b.show()
-		b.rect_position.y = 10
-		b.rect_position.x = 10
+		if Client.debug_enabled:
+			var d = get_node_or_null("../World/DebugText")
+			if d != null:
+				d.show()
+				d.rect_position.y = 10
+				d.rect_position.x = 10
 		info("")
 		w.enter_world()
 
@@ -339,8 +347,10 @@ func resizing():
 		var b = get_node("../World/WorldLogoutButton")
 		b.rect_position.x = get_viewport_rect().size.x - b.rect_size.x - 10
 		b.rect_position.y = get_viewport_rect().size.y - b.rect_size.y - 10
-		b = get_node("../World/DebugText")
-		b.rect_position.x = 10
-		b.rect_position.y = 10
+		if Client.debug_enabled:
+			b = get_node_or_null("../World/DebugText")
+			if b != null:
+				b.rect_position.x = 10
+				b.rect_position.y = 10
 		$Message.rect_position.x = 10
 		$Message.rect_position.y = get_viewport_rect().size.y - $Message.rect_size.y - 10

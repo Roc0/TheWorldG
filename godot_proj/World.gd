@@ -30,25 +30,27 @@ func enter_world():
 	
 	var ret = space_world.enter_world()
 
-	debug_text = get_node("./DebugText")
-	var lblCamRot : Label = Label.new()
-	lblCamRot.name = "LabelCamRot"
-	debug_text.add_child(lblCamRot)
-	lblCamRot.rect_position.x = 0
-	lblCamRot.rect_position.y = 0
-	var lblCamPos : Label = Label.new()
-	lblCamPos.name = "LabelCamPos"
-	debug_text.add_child(lblCamPos)
-	lblCamPos.rect_position.x = lblCamRot.rect_position.x
-	lblCamPos.rect_position.y = lblCamRot.rect_position.y + lblCamRot.rect_size.y
+	if Client.debug_enabled:
+		debug_text = get_node_or_null("./DebugText")
+		if debug_text != null:
+			var lblCamRot : Label = Label.new()
+			lblCamRot.name = "LabelCamRot"
+			debug_text.add_child(lblCamRot)
+			lblCamRot.rect_position.x = 0
+			lblCamRot.rect_position.y = 0
+			var lblCamPos : Label = Label.new()
+			lblCamPos.name = "LabelCamPos"
+			debug_text.add_child(lblCamPos)
+			lblCamPos.rect_position.x = lblCamRot.rect_position.x
+			lblCamPos.rect_position.y = lblCamRot.rect_position.y + lblCamRot.rect_size.y
 	
 	# Debug
-	var t = get_node("./TerrainMesh")
-	print(t.name)
+	#var t = get_node("./TerrainMesh")
+	#print(t.name)
 
 	# Debug
-	var WorldCamera : Camera = get_node("./WorldCamera")
-	print(WorldCamera.name)
+	#var WorldCamera : Camera = get_node("./WorldCamera")
+	#print(WorldCamera.name)
 	#WorldCamera.make_current()
 
 	# Debug CameraTest & TerrainTest 
@@ -77,28 +79,29 @@ func exit_world():
 
 func _process(_delta):
 	var world_camera : Camera = get_node_or_null("./WorldCamera")
-	if world_camera != null:
+	if world_camera != null and Client.debug_enabled:
 		var lblCamRot = get_node_or_null("./DebugText/LabelCamRot")
 		var lblCamPos = get_node_or_null("./DebugText/LabelCamPos")
 		if lblCamRot != null and lblCamPos != null:
 			lblCamRot.text = "Cam Rot: " + str(world_camera.rotation.x) + " " + str(world_camera.rotation.y) + " " + str(world_camera.rotation.z)
 			lblCamPos.text = "Cam Pos: " + str(world_camera.transform.origin.x) + " " + str(world_camera.transform.origin.y) + " " + str(world_camera.transform.origin.z)
 	# DEBUG
-	var entities : Spatial = get_node("./Entities")
-	for entity in (entities.get_children()):
-		var e : RigidBody = entity.get_node("Entity")
-		var n = e.name
-		var p = e.get_position_in_parent()
-		var o = e.transform.origin
-		var b = e.transform.basis
+	#var entities : Spatial = get_node("./Entities")
+	#for entity in (entities.get_children()):
+	#	var e : RigidBody = entity.get_node("Entity")
+	#	var n = e.name
+	#	var p = e.get_position_in_parent()
+	#	var o = e.transform.origin
+	#	var b = e.transform.basis
 	# DEBUG
 
 func resizing():
-	var lblCamRot = get_node_or_null("./DebugText/LabelCamRot")
-	var lblCamPos = get_node_or_null("./DebugText/LabelCamPos")
-	if lblCamRot != null and lblCamPos != null:
-		lblCamRot.rect_position.x = 0
-		lblCamRot.rect_position.y = 0
-		lblCamPos.rect_position.x = lblCamRot.rect_position.x
-		lblCamPos.rect_position.y = lblCamRot.rect_position.y + lblCamRot.rect_size.y
+	if Client.debug_enabled:
+		var lblCamRot = get_node_or_null("./DebugText/LabelCamRot")
+		var lblCamPos = get_node_or_null("./DebugText/LabelCamPos")
+		if lblCamRot != null and lblCamPos != null:
+			lblCamRot.rect_position.x = 0
+			lblCamRot.rect_position.y = 0
+			lblCamPos.rect_position.x = lblCamRot.rect_position.x
+			lblCamPos.rect_position.y = lblCamRot.rect_position.y + lblCamRot.rect_size.y
 			
