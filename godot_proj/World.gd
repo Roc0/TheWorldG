@@ -26,7 +26,7 @@ func _input(event):
 			ui.set_game_state(ui.STATE_LOGIN)
 
 func enter_world():
-	space_world.say("enter_world - start")
+	Client.client_app.debug_print("enter_world - start")
 	
 	var ret = space_world.enter_world()
 
@@ -70,12 +70,12 @@ func enter_world():
 	#cam.transform.origin = camera_pos
 	# Debug CameraTest & TerrainTest
 	
-	print("enter_world - end")
+	Client.client_app.debug_print("enter_world - end")
 
 func exit_world():
-	space_world.say("exit_world - start")
+	Client.client_app.debug_print("exit_world - start")
 	var ret = space_world.exit_world()
-	space_world.say("exit_world - end")
+	Client.client_app.debug_print("exit_world - end")
 
 func _process(_delta):
 	var world_camera : Camera = get_node_or_null("./WorldCamera")

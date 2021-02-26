@@ -23,7 +23,7 @@ var debug_enabled : bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print(self.name + ": _ready")
+	#print(self.name + ": _ready")
 	
 	client_app.set_debug_enabled(debug_enabled)
 	
@@ -65,10 +65,12 @@ func _process(_delta):
 	client_app.message_pump()
 	
 func _init():
-	print("Client: _init")
+	if debug_enabled:
+		print("Client: _init")
 		
 func exitFunct():
-	print(self.name + ": exitFunct")
+	if debug_enabled:
+		print(self.name + ": exitFunct")
 	if (client_app.get_login_status() == ClientApp_Login_Done):
 		client_app.logout()
 	client_app.destroy()
