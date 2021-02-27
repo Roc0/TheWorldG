@@ -1,8 +1,9 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://assets/Grid.png" type="Texture" id=1]
 [ext_resource path="res://UI.gd" type="Script" id=2]
 [ext_resource path="res://World.gd" type="Script" id=3]
+[ext_resource path="res://PlayerTutorial.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -373,6 +374,8 @@ material/0 = SubResource( 6 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02919, 3, -2.03757 )
 mesh = SubResource( 17 )
 material/0 = null
+
+[node name="Player" parent="World" instance=ExtResource( 4 )]
 [connection signal="pressed" from="UI/LoginPanel/LoginButton" to="UI" method="_on_loginButton_pressed"]
 [connection signal="pressed" from="UI/AvatarPanel/LogoutButton" to="UI" method="_on_logoutButton_pressed"]
 [connection signal="pressed" from="UI/AvatarPanel/EnterGameButton" to="UI" method="_on_EnterGameButton_pressed"]
