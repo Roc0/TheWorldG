@@ -361,7 +361,7 @@ __meta__ = {
 
 [node name="Sun" type="DirectionalLight" parent="World"]
 transform = Transform( -1, -2.30405e-07, 2.30405e-07, 0, 0.707107, 0.707107, -3.25841e-07, 0.707107, -0.707107, 0, 80, -84 )
-light_energy = 0.2
+light_energy = 0.1
 
 [node name="TerrainGenerator" type="Spatial" parent="World"]
 

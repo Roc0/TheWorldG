@@ -3,6 +3,8 @@ extends Control
 const STATE_LOGIN = 0
 const STATE_AVATAR = 1
 const STATE_WORLD = 2
+const STATE_EDIT = 999
+
 var game_state
 var avatars_collected = false
 
@@ -75,7 +77,27 @@ func set_game_state(state):
 				d.rect_position.x = 10
 		info("")
 		w.enter_world()
-
+	elif state == STATE_EDIT:
+		game_state = state
+		$LoginPanel.hide()
+		$AvatarPanel.hide()
+		$Message.rect_position.x = 10
+		$Message.rect_position.y = get_viewport_rect().size.y - $Message.rect_size.y - 10
+		var w = get_node("../World")
+		w.show()
+		OS.window_maximized = true
+		var b = get_node("../World/WorldLogoutButton")
+		b.rect_position.y = get_viewport_rect().size.y - b.rect_size.y - 10
+		b.rect_position.x = get_viewport_rect().size.x - b.rect_size.x - 10
+		b.hide()
+		if Client.debug_enabled:
+			var d = get_node_or_null("../World/DebugText")
+			if d != null:
+				d.show()
+				d.rect_position.y = 10
+				d.rect_position.x = 10
+		info("")
+		
 func is_in_world_state() -> bool:
 	return (game_state == STATE_WORLD)
 
@@ -99,7 +121,10 @@ func _ready():
 	result = Client.client_app.connect("player_enter_space", self, "player_enter_space", [])
 	result = Client.client_app.connect("player_leave_space", self, "player_leave_space", [])
 	result = Client.client_app.connect("add_space_geomapping", self, "add_space_geomapping", [])
-	set_game_state(STATE_LOGIN)
+	if Client.edit_mode:
+		set_game_state(STATE_EDIT)
+	else:
+		set_game_state(STATE_LOGIN)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -335,14 +360,12 @@ func _on_WorldLogoutButton_pressed():
 
 func resizing():
 	#print("Resizing: ", get_viewport_rect().size)
+	$Message.rect_position.x = 10
+	$Message.rect_position.y = get_viewport_rect().size.y - $Message.rect_size.y - 10
 	if game_state == STATE_LOGIN:
 		$LoginPanel.rect_size = get_viewport_rect().size
-		$Message.rect_position.x = 10
-		$Message.rect_position.y = get_viewport_rect().size.y - $Message.rect_size.y - 10
 	elif game_state == STATE_AVATAR:
 		$AvatarPanel.rect_size = get_viewport_rect().size
-		$Message.rect_position.x = 10
-		$Message.rect_position.y = get_viewport_rect().size.y - $Message.rect_size.y - 10
 	elif game_state == STATE_WORLD:
 		var b = get_node("../World/WorldLogoutButton")
 		b.rect_position.x = get_viewport_rect().size.x - b.rect_size.x - 10
@@ -352,5 +375,5 @@ func resizing():
 			if b != null:
 				b.rect_position.x = 10
 				b.rect_position.y = 10
-		$Message.rect_position.x = 10
-		$Message.rect_position.y = get_viewport_rect().size.y - $Message.rect_size.y - 10
+	elif game_state == STATE_EDIT:
+		pass

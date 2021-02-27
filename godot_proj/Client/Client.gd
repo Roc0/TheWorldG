@@ -1,9 +1,6 @@
 extends Node
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+var edit_mode : bool = true
 
 var client_app = preload("res://Client/ClientDll.gdns").new()
 
@@ -26,6 +23,7 @@ func _ready():
 	#print(self.name + ": _ready")
 	
 	client_app.set_debug_enabled(debug_enabled)
+	client_app.set_edit_mode(edit_mode)
 	
 	#client_app.say(ClientApp.hello("Test", "1", 2))
 	#add_child(ClientApp) # to activate TheWorld_GD_ClientApp::_ready & TheWorld_GD_ClientApp::_process
