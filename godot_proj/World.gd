@@ -6,7 +6,7 @@ var debug_text
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_tree().get_root().connect("size_changed", self, "resizing")
+	var _result = get_tree().get_root().connect("size_changed", self, "resizing")
 
 	ui = get_node("../UI")
 	space_world = Client.client_app.get_space_world()
@@ -28,7 +28,7 @@ func _input(event):
 func enter_world():
 	Client.client_app.debug_print("enter_world - start")
 	
-	var ret = space_world.enter_world()
+	var _ret = space_world.enter_world()
 
 	if Client.debug_enabled:
 		debug_text = get_node_or_null("./DebugText")
@@ -74,7 +74,7 @@ func enter_world():
 
 func exit_world():
 	Client.client_app.debug_print("exit_world - start")
-	var ret = space_world.exit_world()
+	var _ret = space_world.exit_world()
 	Client.client_app.debug_print("exit_world - end")
 
 func _process(_delta):

@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "MeshInstance",
+"class": "Chunk",
+"language": "GDScript",
+"path": "res://Chunk.gd"
+} ]
 _global_script_class_icons={
-
+"Chunk": ""
 }
 
 [application]
@@ -22,6 +27,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Client="*res://Client/Client.gd"
+Globals="*res://Globals.gd"
 
 [gdnative]
 

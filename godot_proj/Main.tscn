@@ -1,9 +1,11 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/Grid.png" type="Texture" id=1]
 [ext_resource path="res://UI.gd" type="Script" id=2]
 [ext_resource path="res://World.gd" type="Script" id=3]
 [ext_resource path="res://PlayerTutorial.tscn" type="PackedScene" id=4]
+[ext_resource path="res://TerrainGenerator.gd" type="Script" id=5]
+[ext_resource path="res://my.material" type="Material" id=6]
 
 [sub_resource type="PlaneMesh" id=1]
 
@@ -65,110 +67,10 @@ nodes/fragment/connections = PoolIntArray( 2, 0, 0, 0, 3, 0, 4, 0, 4, 0, 2, 0 )
 [sub_resource type="ShaderMaterial" id=6]
 shader = SubResource( 5 )
 
-[sub_resource type="VisualShaderNodeInput" id=7]
-input_name = "vertex"
+[sub_resource type="BoxShape" id=7]
 
-[sub_resource type="VisualShaderNodeVectorDerivativeFunc" id=8]
-function = 1
-
-[sub_resource type="VisualShaderNodeVectorDerivativeFunc" id=9]
-function = 2
-
-[sub_resource type="VisualShaderNodeVectorOp" id=10]
-operator = 8
-
-[sub_resource type="VisualShaderNodeVectorFunc" id=11]
-
-[sub_resource type="VisualShaderNodeVec3Uniform" id=12]
-uniform_name = "Color"
-
-[sub_resource type="VisualShaderNodeScalarUniform" id=13]
-uniform_name = "Metallic"
-
-[sub_resource type="VisualShaderNodeScalarUniform" id=14]
-uniform_name = "Roughness"
-
-[sub_resource type="VisualShader" id=15]
-code = "shader_type spatial;
-render_mode specular_schlick_ggx;
-
-uniform vec3 Color;
-uniform float Metallic;
-uniform float Roughness;
-
-
-
-void vertex() {
-// Output:0
-
-}
-
-void fragment() {
-// VectorUniform:7
-	vec3 n_out7p0 = Color;
-
-// ScalarUniform:8
-	float n_out8p0 = Metallic;
-
-// ScalarUniform:9
-	float n_out9p0 = Roughness;
-
-// Input:2
-	vec3 n_out2p0 = VERTEX;
-
-// VectorDerivativeFunc:3
-	vec3 n_out3p0 = dFdx(n_out2p0);
-
-// VectorDerivativeFunc:4
-	vec3 n_out4p0 = dFdy(n_out2p0);
-
-// VectorOp:5
-	vec3 n_out5p0 = cross(n_out3p0, n_out4p0);
-
-// VectorFunc:6
-	vec3 n_out6p0 = normalize(n_out5p0);
-
-// Output:0
-	ALBEDO = n_out7p0;
-	METALLIC = n_out8p0;
-	ROUGHNESS = n_out9p0;
-	NORMAL = n_out6p0;
-
-}
-
-void light() {
-// Output:0
-
-}
-"
-graph_offset = Vector2( 240.671, 175.719 )
-nodes/fragment/0/position = Vector2( 1360, 180 )
-nodes/fragment/2/node = SubResource( 7 )
-nodes/fragment/2/position = Vector2( 61, 348 )
-nodes/fragment/3/node = SubResource( 8 )
-nodes/fragment/3/position = Vector2( 300, 320 )
-nodes/fragment/4/node = SubResource( 9 )
-nodes/fragment/4/position = Vector2( 300, 400 )
-nodes/fragment/5/node = SubResource( 10 )
-nodes/fragment/5/position = Vector2( 600, 320 )
-nodes/fragment/6/node = SubResource( 11 )
-nodes/fragment/6/position = Vector2( 840, 320 )
-nodes/fragment/7/node = SubResource( 12 )
-nodes/fragment/7/position = Vector2( 840, 120 )
-nodes/fragment/8/node = SubResource( 13 )
-nodes/fragment/8/position = Vector2( 840, 180 )
-nodes/fragment/9/node = SubResource( 14 )
-nodes/fragment/9/position = Vector2( 840, 240 )
-nodes/fragment/connections = PoolIntArray( 2, 0, 3, 0, 2, 0, 4, 0, 3, 0, 5, 0, 4, 0, 5, 1, 5, 0, 6, 0, 6, 0, 0, 7, 7, 0, 0, 0, 8, 0, 0, 2, 9, 0, 0, 3 )
-
-[sub_resource type="ShaderMaterial" id=16]
-shader = SubResource( 15 )
-shader_param/Color = Vector3( 50, 50, 1 )
-shader_param/Metallic = null
-shader_param/Roughness = null
-
-[sub_resource type="SphereMesh" id=17]
-material = SubResource( 16 )
+[sub_resource type="SphereMesh" id=18]
+material = ExtResource( 6 )
 radius = 2.5
 height = 5.0
 radial_segments = 12
@@ -364,18 +266,26 @@ transform = Transform( -1, -2.30405e-07, 2.30405e-07, 0, 0.707107, 0.707107, -3.
 light_energy = 0.1
 
 [node name="TerrainGenerator" type="Spatial" parent="World"]
+script = ExtResource( 5 )
+material = ExtResource( 6 )
 
 [node name="FakeFloor" type="MeshInstance" parent="World"]
 transform = Transform( 100, 0, 0, 0, 1, 0, 0, 0, 100, 0.415512, -1.08232, 0.640892 )
 mesh = SubResource( 1 )
 material/0 = SubResource( 6 )
 
+[node name="StaticBody" type="StaticBody" parent="World/FakeFloor"]
+
+[node name="CollisionShape" type="CollisionShape" parent="World/FakeFloor/StaticBody"]
+shape = SubResource( 7 )
+
 [node name="MeshInstance" type="MeshInstance" parent="World"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02919, 3, -2.03757 )
-mesh = SubResource( 17 )
+mesh = SubResource( 18 )
 material/0 = null
 
 [node name="Player" parent="World" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.39491, 0 )
 [connection signal="pressed" from="UI/LoginPanel/LoginButton" to="UI" method="_on_loginButton_pressed"]
 [connection signal="pressed" from="UI/AvatarPanel/LogoutButton" to="UI" method="_on_logoutButton_pressed"]
 [connection signal="pressed" from="UI/AvatarPanel/EnterGameButton" to="UI" method="_on_EnterGameButton_pressed"]

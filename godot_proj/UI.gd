@@ -103,24 +103,24 @@ func is_in_world_state() -> bool:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	get_tree().get_root().connect("size_changed", self, "resizing")
+	var _result = get_tree().get_root().connect("size_changed", self, "resizing")
 	
-	var result = Client.client_app.connect("login_success", self, "login_success", [])
-	result = Client.client_app.connect("login_failed", self, "login_failed", [])
-	result = Client.client_app.connect("server_closed", self, "server_closed", [])
-	result = Client.client_app.connect("kicked_from_server", self, "kicked_from_server", [])
+	_result = Client.client_app.connect("login_success", self, "login_success", [])
+	_result = Client.client_app.connect("login_failed", self, "login_failed", [])
+	_result = Client.client_app.connect("server_closed", self, "server_closed", [])
+	_result = Client.client_app.connect("kicked_from_server", self, "kicked_from_server", [])
 
-	result = Client.client_app.connect("clear_entities", self, "clear_entities", [])
-	result = Client.client_app.connect("created_entity", self, "created_entity", [])
-	result = Client.client_app.connect("erase_entity", self, "erase_entity", [])
-	result = Client.client_app.connect("clear_avatars", self, "clear_avatars", [])
-	result = Client.client_app.connect("erase_avatar", self, "erase_avatar", [])
+	_result = Client.client_app.connect("clear_entities", self, "clear_entities", [])
+	_result = Client.client_app.connect("created_entity", self, "created_entity", [])
+	_result = Client.client_app.connect("erase_entity", self, "erase_entity", [])
+	_result = Client.client_app.connect("clear_avatars", self, "clear_avatars", [])
+	_result = Client.client_app.connect("erase_avatar", self, "erase_avatar", [])
 
 
-	result = Client.client_app.connect("update_avatars", self, "update_avatars", [])
-	result = Client.client_app.connect("player_enter_space", self, "player_enter_space", [])
-	result = Client.client_app.connect("player_leave_space", self, "player_leave_space", [])
-	result = Client.client_app.connect("add_space_geomapping", self, "add_space_geomapping", [])
+	_result = Client.client_app.connect("update_avatars", self, "update_avatars", [])
+	_result = Client.client_app.connect("player_enter_space", self, "player_enter_space", [])
+	_result = Client.client_app.connect("player_leave_space", self, "player_leave_space", [])
+	_result = Client.client_app.connect("add_space_geomapping", self, "add_space_geomapping", [])
 	if Client.edit_mode:
 		set_game_state(STATE_EDIT)
 	else:
@@ -172,6 +172,7 @@ func quit_app() -> void:
 		var w = get_node("../World")
 		w.hide()
 		w.exit_world()
+		#warning-ignore:return_value_discarded
 		logout_from_server()
 		#set_game_state(STATE_LOGIN)
 	info ("Quitting ...")
@@ -183,7 +184,7 @@ func _on_loginButton_pressed():
 	var port = 0
 	info("Login in progress ...")
 	account_name = $LoginPanel/UsernameEdit.text
-	var result = Client.client_app.login($LoginPanel/UsernameEdit.text, $LoginPanel/PasswordEdit.text, s, ip, port)
+	var _result = Client.client_app.login($LoginPanel/UsernameEdit.text, $LoginPanel/PasswordEdit.text, s, ip, port)
 
 func login_success():
 	info("Login success")
@@ -207,16 +208,16 @@ func kicked_from_server():
 func clear_entities():
 	pass
 
-func created_entity(id, player):
+func created_entity(_id, _player):
 	pass
 
-func erase_entity(id):
+func erase_entity(_id):
 	pass
 
 func clear_avatars():
 	pass
 
-func erase_avatar(id):
+func erase_avatar(_id):
 	pass
 
 func clear_avatar_list():
@@ -252,6 +253,8 @@ func populate_avatar_list():
 class AvatarButton extends Button:
 	var id
 	var ui
+	# warning-ignore:shadowed_variable
+	# warning-ignore:shadowed_variable
 	func _init(id, ui):
 		self.id = id
 		self.ui = ui
@@ -280,7 +283,7 @@ func logout_from_server() -> bool:
 
 func _on_logoutButton_pressed():
 	if not is_in_world_state():
-		var result = logout_from_server()
+		var _result = logout_from_server()
 		set_game_state(STATE_LOGIN)
 
 func _on_EnterGameButton_pressed():
@@ -334,13 +337,13 @@ func _on_CreateButton_pressed():
 func update_avatars():
 	avatars_collected = false
 
-func player_enter_space(space_id):
+func player_enter_space(_space_id):
 	set_game_state(STATE_WORLD)
 		
-func player_leave_space(space_id):
+func player_leave_space(_space_id):
 	pass
 	
-func add_space_geomapping(space_id, res_path):
+func add_space_geomapping(_space_id, _res_path):
 	pass
 
 
@@ -355,7 +358,7 @@ func _on_WorldLogoutButton_pressed():
 		
 		var w = get_node("../World")
 		w.exit_world()
-		var result = logout_from_server()
+		var _result = logout_from_server()
 		set_game_state(STATE_LOGIN)
 
 func resizing():
