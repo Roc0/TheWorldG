@@ -4,11 +4,24 @@ export var mouse_sensitivity := 1000
 
 onready var Player := get_parent() as KinematicBody
 
+func _ready():
+	if Client.edit_mode:
+		set_process(true)
+		set_physics_process(true)
+		set_process_input(true)
+	else:
+		set_process(false)
+		set_physics_process(false)
+		set_process_input(false)
+
 func _enter_tree() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	pass
+	if Client.edit_mode:
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	
 func _exit_tree() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if Client.edit_mode:
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _input(event : InputEvent) -> void:
 	if event is InputEventMouseMotion:

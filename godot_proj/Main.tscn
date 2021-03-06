@@ -69,7 +69,7 @@ shader = SubResource( 5 )
 
 [sub_resource type="BoxShape" id=7]
 
-[sub_resource type="SphereMesh" id=18]
+[sub_resource type="SphereMesh" id=8]
 material = ExtResource( 6 )
 radius = 2.5
 height = 5.0
@@ -281,11 +281,12 @@ shape = SubResource( 7 )
 
 [node name="MeshInstance" type="MeshInstance" parent="World"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.02919, 3, -2.03757 )
-mesh = SubResource( 18 )
+mesh = SubResource( 8 )
 material/0 = null
 
 [node name="Player" parent="World" instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.39491, 0 )
+collision_layer = 2
 [connection signal="pressed" from="UI/LoginPanel/LoginButton" to="UI" method="_on_loginButton_pressed"]
 [connection signal="pressed" from="UI/AvatarPanel/LogoutButton" to="UI" method="_on_logoutButton_pressed"]
 [connection signal="pressed" from="UI/AvatarPanel/EnterGameButton" to="UI" method="_on_EnterGameButton_pressed"]

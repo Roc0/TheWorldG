@@ -98,6 +98,8 @@ func set_game_state(state):
 				d.rect_position.x = 10
 		info("")
 		
+		
+		
 func is_in_world_state() -> bool:
 	return (game_state == STATE_WORLD)
 

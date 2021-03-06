@@ -14,8 +14,9 @@ const JUMP_SPEED := 15
 const GRAVITY := -45
 
 func _process(delta : float) -> void:
-	move(delta)
-	face_forward()
+	if Client.edit_mode:
+		move(delta)
+		face_forward()
 	
 func move(delta : float) -> void:
 	var movement_dir := get_2d_movement()

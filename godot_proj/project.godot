@@ -121,6 +121,11 @@ ui_debug_print={
  ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="Terrain"
+3d_physics/layer_2="Player"
+
 [physics]
 
 3d/physics_engine="Bullet"
