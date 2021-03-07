@@ -102,6 +102,7 @@ func cleanup_old_chunks(center_grid_position : Vector2):
 	for key in keys_to_erase:
 #		print("Removing " + key)
 		chunks[key].queue_free()
+		# warning-ignore:return_value_discarded
 		chunks.erase(key)
 
 func get_chunk_grid_position_for(position : Vector3) -> Vector2:
