@@ -14,7 +14,7 @@ const JUMP_SPEED := 15
 const GRAVITY := -45
 
 func _process(delta : float) -> void:
-	if Client.edit_mode:
+	#if Client.edit_mode:
 		move(delta)
 		face_forward()
 	

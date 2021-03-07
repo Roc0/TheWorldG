@@ -4,6 +4,8 @@ var ui
 var space_world
 var debug_text
 
+onready var player : KinematicBody = Globals.player
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	var _result = get_tree().get_root().connect("size_changed", self, "resizing")
@@ -31,6 +33,15 @@ func enter_world():
 	var _ret = space_world.enter_world()
 
 	if Client.debug_enabled:
+		var terrain_mesh : MeshInstance = get_node("./TerrainMesh")
+		var aabb : AABB = terrain_mesh.get_aabb()
+		var starting_point : Vector3 = aabb.position
+		var ending_point : Vector3 = aabb.position + aabb.size
+		var player_pos := Vector3( (ending_point.x + starting_point.x) / 2, ending_point.y, (ending_point.z + starting_point.z) / 2)
+		player.transform.origin = player_pos
+		var body : MeshInstance = player.get_node("Body")
+		var r = body.mesh.radius
+		aabb = body.get_aabb()
 		debug_text = get_node_or_null("./DebugText")
 		if debug_text != null:
 			var lblCamRot : Label = Label.new()
@@ -43,32 +54,6 @@ func enter_world():
 			debug_text.add_child(lblCamPos)
 			lblCamPos.rect_position.x = lblCamRot.rect_position.x
 			lblCamPos.rect_position.y = lblCamRot.rect_position.y + lblCamRot.rect_size.y
-	
-	# Debug
-	#var t = get_node("./TerrainMesh")
-	#print(t.name)
-
-	# Debug
-	#var WorldCamera : Camera = get_node("./WorldCamera")
-	#print(WorldCamera.name)
-	#WorldCamera.make_current()
-
-	# Debug CameraTest & TerrainTest 
-	#var mesh = load("res://Meshes/spaces/xinshoucun/undulating1.obj")
-	#var terrain = get_node("./TerrainTest")
-	#terrain.set_mesh(mesh)
-	#var cam = get_node("./CameraTest")
-	#cam.far = 1000
-	#cam.mouse_mode = 2
-	#var terrain_mesh = space_world.get_mesh_instance()
-	#var aabb : AABB = terrain_mesh.get_aabb()
-	#var starting_point : Vector3 = aabb.position
-	#var ending_point : Vector3 = aabb.position + aabb.size
-	#cam.set_perspective(45, 1.0, 1000.0)
-	#var offset = sqrt( (aabb.size.x * aabb.size.x) + (aabb.size.y * aabb.size.y) + (aabb.size.z * aabb.size.z) ) / 2
-	#var camera_pos = Vector3( (ending_point.x + starting_point.x) / 2 + offset, (ending_point.y + starting_point.y) / 2 + offset, (ending_point.z + starting_point.z) / 2 + offset)
-	#cam.transform.origin = camera_pos
-	# Debug CameraTest & TerrainTest
 	
 	Client.client_app.debug_print("enter_world - end")
 
