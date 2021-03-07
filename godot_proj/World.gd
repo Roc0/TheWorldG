@@ -80,11 +80,12 @@ func exit_world():
 func _process(_delta):
 	var world_camera : Camera = get_node_or_null("./WorldCamera")
 	if world_camera != null and Client.debug_enabled:
+		var active_camera : Camera = world_camera.get_active_camera()
 		var lblCamRot = get_node_or_null("./DebugText/LabelCamRot")
 		var lblCamPos = get_node_or_null("./DebugText/LabelCamPos")
-		if lblCamRot != null and lblCamPos != null:
-			lblCamRot.text = "Cam Rot: " + str(world_camera.rotation.x) + " " + str(world_camera.rotation.y) + " " + str(world_camera.rotation.z)
-			lblCamPos.text = "Cam Pos: " + str(world_camera.transform.origin.x) + " " + str(world_camera.transform.origin.y) + " " + str(world_camera.transform.origin.z)
+		if lblCamRot != null and lblCamPos != null and active_camera != null:
+			lblCamRot.text = "Cam Rot: " + str(active_camera.global_transform.basis.get_euler().x) + " " + str(active_camera.global_transform.basis.get_euler().y) + " " + str(active_camera.global_transform.basis.get_euler().z)
+			lblCamPos.text = "Cam Pos: " + str(active_camera.global_transform.origin.x) + " " + str(active_camera.global_transform.origin.y) + " " + str(world_camera.global_transform.origin.z)
 	# DEBUG
 	#var entities : Spatial = get_node("./Entities")
 	#for entity in (entities.get_children()):

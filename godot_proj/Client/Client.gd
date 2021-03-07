@@ -16,7 +16,7 @@ const Time_Period_Process = 0.001	# 1 millisecond
 
 var account_name = ""
 var avatar_name = ""
-var debug_enabled : bool = false
+var debug_enabled : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
