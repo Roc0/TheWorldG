@@ -15,7 +15,6 @@ func _ready():
 		set_process_input(false)
 
 func _enter_tree() -> void:
-	pass
 	if Client.edit_mode:
 		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 	

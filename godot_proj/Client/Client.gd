@@ -1,6 +1,6 @@
 extends Node
 
-var edit_mode : bool = true
+var edit_mode : bool = false
 
 var client_app = preload("res://Client/ClientDll.gdns").new()
 

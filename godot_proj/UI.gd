@@ -27,6 +27,7 @@ func set_game_state(state):
 		$Message.rect_position.y = get_viewport_rect().size.y - $Message.rect_size.y - 10
 		get_node("../World").hide()
 		get_node("../World/WorldLogoutButton").hide()
+		OS.window_maximized = false
 		if Client.debug_enabled:
 			var d = get_node_or_null("../World/DebugText")
 			if d != null:
