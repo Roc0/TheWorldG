@@ -42,16 +42,8 @@ func _process(_delta):
 		$DebugStats.visible = true
 	else:
 		$DebugStats.visible = false
-		
-	var world_camera : Camera = get_node_or_null("./WorldCamera")
-	if world_camera != null and Globals.debug_enabled:
-		var active_camera : Camera = world_camera.get_active_camera()
-		var lblCamRot = get_node_or_null("./DebugText/LabelCamRot")
-		var lblCamPos = get_node_or_null("./DebugText/LabelCamPos")
-		if lblCamRot != null and lblCamPos != null and active_camera != null:
-			lblCamRot.text = "Cam Rot: " + str(active_camera.global_transform.basis.get_euler().x) + " " + str(active_camera.global_transform.basis.get_euler().y) + " " + str(active_camera.global_transform.basis.get_euler().z)
-			lblCamPos.text = "Cam Pos: " + str(active_camera.global_transform.origin.x) + " " + str(active_camera.global_transform.origin.y) + " " + str(world_camera.global_transform.origin.z)
-	# DEBUG
+	
+		# DEBUG
 	#var entities : Spatial = get_node("./Entities")
 	#for entity in (entities.get_children()):
 	#	var e : RigidBody = entity.get_node("Entity")
@@ -80,19 +72,6 @@ func enter_world():
 		player.transform.origin = Vector3( (ending_point.x + starting_point.x) / 2, ending_point.y, (ending_point.z + starting_point.z) / 2)
 		# Insert debug player in world - End
 		
-		debug_text = get_node_or_null("./DebugText")
-		if debug_text != null:
-			var lblCamRot : Label = Label.new()
-			lblCamRot.name = "LabelCamRot"
-			debug_text.add_child(lblCamRot)
-			lblCamRot.rect_position.x = 0
-			lblCamRot.rect_position.y = 0
-			var lblCamPos : Label = Label.new()
-			lblCamPos.name = "LabelCamPos"
-			debug_text.add_child(lblCamPos)
-			lblCamPos.rect_position.x = lblCamRot.rect_position.x
-			lblCamPos.rect_position.y = lblCamRot.rect_position.y + lblCamRot.rect_size.y
-	
 	Client.client_app.debug_print("enter_world - end")
 
 func exit_world():
@@ -106,12 +85,4 @@ func exit_world():
 	Client.client_app.debug_print("exit_world - end")
 
 func resizing():
-	if Globals.debug_enabled:
-		var lblCamRot = get_node_or_null("./DebugText/LabelCamRot")
-		var lblCamPos = get_node_or_null("./DebugText/LabelCamPos")
-		if lblCamRot != null and lblCamPos != null:
-			lblCamRot.rect_position.x = 0
-			lblCamRot.rect_position.y = 0
-			lblCamPos.rect_position.x = lblCamRot.rect_position.x
-			lblCamPos.rect_position.y = lblCamRot.rect_position.y + lblCamRot.rect_size.y
-			
+	pass	
