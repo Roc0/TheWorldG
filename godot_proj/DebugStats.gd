@@ -41,13 +41,15 @@ func _process(_delta):
 	for prop in props:
 		prop.set_label()
 		
-func add_property(object, property, display):
+func add_property(object : Object, property : NodePath, display : String):
 	var label = Label.new()
 	#label.set("custom_fonts/font", load("res://debug/roboto_16.tres"))
 	$Column.add_child(label)
 	props.append(Property.new(object, property, label, display))
 
-func remove_property(object, property):
+func remove_property(object : Object, property : NodePath):
 	for prop in props:
 		if prop.object == object and prop.property == property:
+			if is_instance_valid(prop.label_ref):
+				prop.label_ref.queue_free()
 			props.erase(prop)

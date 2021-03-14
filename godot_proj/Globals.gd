@@ -1,7 +1,7 @@
 extends Node
 
 var edit_mode : bool = false
-var debug_enabled : bool = true
+var debug_enabled : bool = false
 
 var player
 
