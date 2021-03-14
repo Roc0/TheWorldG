@@ -32,7 +32,7 @@ func enter_world():
 	
 	var _ret = space_world.enter_world()
 
-	if Client.debug_enabled:
+	if Globals.debug_enabled:
 		var terrain_mesh : MeshInstance = get_node("./TerrainMesh")
 		var aabb : AABB = terrain_mesh.get_aabb()
 		var starting_point : Vector3 = aabb.position
@@ -40,7 +40,7 @@ func enter_world():
 		var player_pos := Vector3( (ending_point.x + starting_point.x) / 2, ending_point.y, (ending_point.z + starting_point.z) / 2)
 		player.transform.origin = player_pos
 		var body : MeshInstance = player.get_node("Body")
-		var r = body.mesh.radius
+		#var r = body.mesh.radius
 		aabb = body.get_aabb()
 		debug_text = get_node_or_null("./DebugText")
 		if debug_text != null:
@@ -64,7 +64,9 @@ func exit_world():
 
 func _process(_delta):
 	var world_camera : Camera = get_node_or_null("./WorldCamera")
-	if world_camera != null and Client.debug_enabled:
+	if world_camera != null:
+		
+	if world_camera != null and Globals.debug_enabled:
 		var active_camera : Camera = world_camera.get_active_camera()
 		var lblCamRot = get_node_or_null("./DebugText/LabelCamRot")
 		var lblCamPos = get_node_or_null("./DebugText/LabelCamPos")
@@ -82,7 +84,7 @@ func _process(_delta):
 	# DEBUG
 
 func resizing():
-	if Client.debug_enabled:
+	if Globals.debug_enabled:
 		var lblCamRot = get_node_or_null("./DebugText/LabelCamRot")
 		var lblCamPos = get_node_or_null("./DebugText/LabelCamPos")
 		if lblCamRot != null and lblCamPos != null:

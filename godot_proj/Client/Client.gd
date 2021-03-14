@@ -1,7 +1,5 @@
 extends Node
 
-var edit_mode : bool = false
-
 var client_app = preload("res://Client/ClientDll.gdns").new()
 
 const ClientApp_AppMode_InitialMenu = 0
@@ -16,14 +14,13 @@ const Time_Period_Process = 0.001	# 1 millisecond
 
 var account_name = ""
 var avatar_name = ""
-var debug_enabled : bool = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	#print(self.name + ": _ready")
 	
-	client_app.set_debug_enabled(debug_enabled)
-	client_app.set_edit_mode(edit_mode)
+	client_app.set_debug_enabled(Globals.debug_enabled)
+	client_app.set_edit_mode(Globals.edit_mode)
 	
 	#client_app.say(ClientApp.hello("Test", "1", 2))
 	#add_child(ClientApp) # to activate TheWorld_GD_ClientApp::_ready & TheWorld_GD_ClientApp::_process
@@ -62,12 +59,14 @@ func _process(_delta):
 		#print(self.name + ": _process - call client_app.message_pump()")
 	client_app.message_pump()
 	
+	Globals.debug_enabled = client_app.is_debug_enabled()
+	
 func _init():
-	if debug_enabled:
+	if Globals.debug_enabled:
 		print("Client: _init")
 		
 func exitFunct():
-	if debug_enabled:
+	if Globals.debug_enabled:
 		print(self.name + ": exitFunct")
 	if (client_app.get_login_status() == ClientApp_Login_Done):
 		client_app.logout()

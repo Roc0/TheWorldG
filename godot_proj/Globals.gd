@@ -1,5 +1,8 @@
 extends Node
 
+var edit_mode : bool = false
+var debug_enabled : bool = true
+
 var player
 
 const QUAD_SIZE := 2								# coordinate spaziali

@@ -28,7 +28,7 @@ func set_game_state(state):
 		get_node("../World").hide()
 		get_node("../World/WorldLogoutButton").hide()
 		OS.window_maximized = false
-		if Client.debug_enabled:
+		if Globals.debug_enabled:
 			var d = get_node_or_null("../World/DebugText")
 			if d != null:
 				d.hide()
@@ -51,7 +51,7 @@ func set_game_state(state):
 		$AvatarPanel.show()
 		get_node("../World").hide()
 		get_node("../World/WorldLogoutButton").hide()
-		if Client.debug_enabled:
+		if Globals.debug_enabled:
 			var d = get_node_or_null("../World/DebugText")
 			if d != null:
 				d.hide()
@@ -70,7 +70,7 @@ func set_game_state(state):
 		b.show()
 		b.rect_position.y = get_viewport_rect().size.y - b.rect_size.y - 10
 		b.rect_position.x = get_viewport_rect().size.x - b.rect_size.x - 10
-		if Client.debug_enabled:
+		if Globals.debug_enabled:
 			var d = get_node_or_null("../World/DebugText")
 			if d != null:
 				d.show()
@@ -91,7 +91,7 @@ func set_game_state(state):
 		b.rect_position.y = get_viewport_rect().size.y - b.rect_size.y - 10
 		b.rect_position.x = get_viewport_rect().size.x - b.rect_size.x - 10
 		b.hide()
-		if Client.debug_enabled:
+		if Globals.debug_enabled:
 			var d = get_node_or_null("../World/DebugText")
 			if d != null:
 				d.show()
@@ -124,7 +124,7 @@ func _ready():
 	_result = Client.client_app.connect("player_enter_space", self, "player_enter_space", [])
 	_result = Client.client_app.connect("player_leave_space", self, "player_leave_space", [])
 	_result = Client.client_app.connect("add_space_geomapping", self, "add_space_geomapping", [])
-	if Client.edit_mode:
+	if Globals.edit_mode:
 		set_game_state(STATE_EDIT)
 	else:
 		set_game_state(STATE_LOGIN)
@@ -376,7 +376,7 @@ func resizing():
 		var b = get_node("../World/WorldLogoutButton")
 		b.rect_position.x = get_viewport_rect().size.x - b.rect_size.x - 10
 		b.rect_position.y = get_viewport_rect().size.y - b.rect_size.y - 10
-		if Client.debug_enabled:
+		if Globals.debug_enabled:
 			b = get_node_or_null("../World/DebugText")
 			if b != null:
 				b.rect_position.x = 10
