@@ -53,7 +53,7 @@ func _draw():
 				Cam.is_position_behind(Lines[i].End)):
 				continue
 			
-			draw_line(ScreenPointStart, ScreenPointEnd, Lines[i].LineColor)
+			draw_line(ScreenPointStart, ScreenPointEnd, Lines[i].LineColor, 3.0, true)
 			
 			if (Lines[i].Text != ""):
 				if Lines[i].TextPos == "end":

@@ -7,6 +7,7 @@ var active_camera : Camera = null
 var _active_camera_changed : bool = false
 var active_camera_global_rot : Vector3
 var active_camera_global_pos : Vector3
+var fps := 0.0
 
 onready var player : KinematicBody = Globals.player
 
@@ -28,6 +29,8 @@ func _input(event):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	fps = Engine.get_frames_per_second()
+	
 	if _active_camera_changed:
 		_active_camera_changed = false
 		var world_camera : Camera = get_node_or_null("./WorldCamera")
@@ -60,6 +63,7 @@ func enter_world():
 	Client.client_app.debug_print("enter_world - start")
 	var _ret = space_world.enter_world()
 
+	$DebugStats.add_property(self, "fps", "")
 	$DebugStats.add_property(self, "active_camera_global_rot", "")
 	$DebugStats.add_property(self, "active_camera_global_pos", "")
 	
@@ -77,6 +81,7 @@ func enter_world():
 func exit_world():
 	Client.client_app.debug_print("exit_world - start")
 
+	$DebugStats.remove_property(self, "fps")
 	$DebugStats.remove_property(self, "active_camera_global_rot")
 	$DebugStats.remove_property(self, "active_camera_global_pos")
 		
