@@ -8,6 +8,9 @@ var _active_camera_changed : bool = false
 var active_camera_global_rot : Vector3
 var active_camera_global_pos : Vector3
 var fps := 0.0
+var player_hp := -1
+var player_mp := -1
+var player_id := -1
 
 onready var player : KinematicBody = Globals.player
 
@@ -30,6 +33,10 @@ func _input(event):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	fps = Engine.get_frames_per_second()
+	
+	if player_id != -1:
+		player_hp = Client.client_app.get_hp_by_id(player_id)
+		player_mp = Client.client_app.get_mp_by_id(player_id)
 	
 	if _active_camera_changed:
 		_active_camera_changed = false
@@ -61,11 +68,16 @@ func active_camera_changed():
 
 func enter_world():
 	Client.client_app.debug_print("enter_world - start")
+	
+	player_id = Client.client_app.get_player_id()
+	
 	var _ret = space_world.enter_world()
 
 	$DebugStats.add_property(self, "fps", "")
 	$DebugStats.add_property(self, "active_camera_global_rot", "")
 	$DebugStats.add_property(self, "active_camera_global_pos", "")
+	$DebugStats.add_property(self, "player_hp", "")
+	$DebugStats.add_property(self, "player_mp", "")
 	
 	if Globals.debug_enabled:
 		
@@ -84,9 +96,13 @@ func exit_world():
 	$DebugStats.remove_property(self, "fps")
 	$DebugStats.remove_property(self, "active_camera_global_rot")
 	$DebugStats.remove_property(self, "active_camera_global_pos")
+	$DebugStats.remove_property(self, "player_hp")
+	$DebugStats.remove_property(self, "player_mp")
 		
 	var _ret = space_world.exit_world()
 
+	player_id = -1
+	
 	Client.client_app.debug_print("exit_world - end")
 
 func resizing():
