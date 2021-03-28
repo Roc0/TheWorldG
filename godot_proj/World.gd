@@ -11,6 +11,11 @@ var fps := 0.0
 var player_hp := -1
 var player_mp := -1
 var player_id := -1
+var mouse_pos : Vector2
+var mouse_ptr_pos_in_world : Vector3
+var mouse_ptr_normal_in_world : Vector3
+var mouse_ptr_name_in_world : String
+var mouse_ptr_id_in_world : int
 
 onready var player : KinematicBody = Globals.player
 
@@ -23,12 +28,15 @@ func _ready():
 	space_world.connect("active_camera_changed", self, "active_camera_changed", [])
 	
 func _input(event):
-	if event.is_action_pressed("ui_cancel"):
-		if ui.is_in_world_state():
-			get_tree().set_input_as_handled()
-			exit_world()
-			ui.logout_from_server()
-			ui.set_game_state(ui.STATE_LOGIN)
+	if event is InputEventKey:
+		if event.is_action_pressed("ui_cancel"):
+			if ui.is_in_world_state():
+				get_tree().set_input_as_handled()
+				exit_world()
+				ui.logout_from_server()
+				ui.set_game_state(ui.STATE_LOGIN)
+	elif event is InputEventMouseMotion:
+		mouse_pos = event.global_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -63,6 +71,17 @@ func _process(_delta):
 	#	var b = e.transform.basis
 	# DEBUG
 
+func _physics_process(_delta):
+	if active_camera != null:
+		var ray_origin : Vector3 = active_camera.project_ray_origin(mouse_pos)
+		var ray_direction : Vector3 = active_camera.project_ray_normal(mouse_pos)
+		var hit = get_world().get_direct_space_state().intersect_ray(ray_origin, ray_origin + ray_direction * 1000.0)
+		if hit.size() != 0:
+			mouse_ptr_name_in_world = hit.collider.get_name()
+			mouse_ptr_id_in_world = hit.collider.get_instance_id()
+			mouse_ptr_pos_in_world = hit.position
+			mouse_ptr_normal_in_world = hit.normal
+
 func active_camera_changed():
 	_active_camera_changed = true
 
@@ -78,6 +97,10 @@ func enter_world():
 	$DebugStats.add_property(self, "active_camera_global_pos", "")
 	$DebugStats.add_property(self, "player_hp", "")
 	$DebugStats.add_property(self, "player_mp", "")
+	$DebugStats.add_property(self, "mouse_ptr_pos_in_world", "")
+	$DebugStats.add_property(self, "mouse_ptr_normal_in_world", "")
+	$DebugStats.add_property(self, "mouse_ptr_name_in_world", "")
+	$DebugStats.add_property(self, "mouse_ptr_id_in_world", "")
 	
 	if Globals.debug_enabled:
 		
@@ -98,7 +121,11 @@ func exit_world():
 	$DebugStats.remove_property(self, "active_camera_global_pos")
 	$DebugStats.remove_property(self, "player_hp")
 	$DebugStats.remove_property(self, "player_mp")
-		
+	$DebugStats.remove_property(self, "mouse_ptr_pos_in_world")
+	$DebugStats.remove_property(self, "mouse_ptr_normal_in_world")
+	$DebugStats.remove_property(self, "mouse_ptr_name_in_world")
+	$DebugStats.remove_property(self, "mouse_ptr_id_in_world")
+
 	var _ret = space_world.exit_world()
 
 	player_id = -1
