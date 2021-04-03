@@ -18,6 +18,7 @@ func _ready():
 	noise.octaves = 4
 	noise.period = 7.0
 	noise.persistence = 0.2
+	noise.lacunarity = 2.0
 	
 	#var chunk := Chunk.new(Vector2(0, 0), noise, material)
 	#chunk.generate()
