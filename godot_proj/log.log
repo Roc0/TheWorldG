@@ -2012,3 +2012,51 @@ ERROR root [2021-05-16 14:07:00,101] - PyGC::debugTracing(): EntityComponent : l
 DEBUG root [2021-05-16 14:07:00,110] - PlayerAvatar::~PlayerAvatar(): 9
  INFO root [2021-05-16 14:07:00,113] - Script::uninstall(): is successfully!
  INFO root [2021-05-16 14:07:00,114] - client has shut down.
+ INFO root [2021-12-17 13:50:36,384] - 
+ INFO root [2021-12-17 13:50:36,385] - -----------------------------------------------------------------------------------------
+
+
+ INFO root [2021-12-17 13:50:36,395] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:60442 )
+ INFO root [2021-12-17 13:50:36,395] - NetworkInterface::initialize(EXTERNAL-TCP): address 192.168.2.188:60442, SOMAXCONN=5.
+ INFO root [2021-12-17 13:50:36,397] - NetworkInterface::initialize(EXTERNAL-UDP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:51548 )
+ INFO root [2021-12-17 13:50:36,397] - NetworkInterface::initialize(EXTERNAL-UDP): address 192.168.2.188:51548, SOMAXCONN=5.
+ INFO root [2021-12-17 13:50:36,398] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:60443 )
+ INFO root [2021-12-17 13:50:36,398] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.2.188:60443, SOMAXCONN=5.
+ INFO root [2021-12-17 13:50:36,476] - Script::install(): is successfully, Python=(3.7.3 (heads/master-dirty:1e073f2dd, Mar 15 2020, 15:33:52) [MSC v.1916 64 bit (AMD64)])!
+ INFO root [2021-12-17 13:50:36,476] - Script::install(): KBExtra is successfully!
+ INFO root [2021-12-17 13:50:36,490] - ---- client Version: 2.5.10. ScriptVersion: 0.1.0. Protocol: 6282DF3927FC4EF9CF64A5D4E43EDB93. Config: Debug. Built: 13:49:32 Dec 17 2021. AppID: 7042653023008456704. UID: 0. PID: 36780 ----
+ INFO root [2021-12-17 13:50:36,490] - Server Riccardo: 11th Gen Intel(R) Core(TM) i5-11400F @ 2.60GHz with 16645500kB RAM
+ INFO root [2021-12-17 13:50:36,491] - ThreadPool::createThreadPool: creating  threadpool...
+ INFO root [2021-12-17 13:50:36,491] - ThreadPool::createThreadPool: successfully(1), newThreadCount=1, normalMaxThreadCount=1, maxThreadCount=4
+DEBUG root [2021-12-17 13:50:36,901] - loaded component-script:Test(3).
+DEBUG root [2021-12-17 13:50:36,902] - loaded component-script:TestNoBase(4).
+DEBUG root [2021-12-17 13:50:36,903] - loaded entity-script:Account(1).
+DEBUG root [2021-12-17 13:50:36,917] - loaded entity-script:Avatar(2).
+DEBUG root [2021-12-17 13:50:36,918] - loaded entity-script:Monster(5).
+DEBUG root [2021-12-17 13:50:36,919] - loaded entity-script:NPC(6).
+DEBUG root [2021-12-17 13:50:36,920] - loaded entity-script:Gate(7).
+S_DBG root [2021-12-17 13:50:36,923] - onInit::isReload = 0
+ INFO root [2021-12-17 13:50:36,924] - TelnetServer server is running on port 51000
+ INFO root [2021-12-17 13:50:36,924] - ThreadPool::createThreadPool: creating  threadpool...
+ INFO root [2021-12-17 13:50:36,924] - ThreadPool::createThreadPool: successfully(1), newThreadCount=1, normalMaxThreadCount=1, maxThreadCount=4
+ INFO root [2021-12-17 13:50:37,026] - ---- client is running ----
+ INFO root [2021-12-17 13:50:48,548] - ClientApp::shutDown: shutting down
+DEBUG root [2021-12-17 13:50:48,548] - ThreadPool::destroy(): starting size 1.
+ WARN root [2021-12-17 13:50:48,852] - ThreadPool::destroy(): waiting for thread(1)[0x133c1200,], try=1
+DEBUG root [2021-12-17 13:50:49,255] - TPThread::~TPThread(): 0x133c1200
+ WARN root [2021-12-17 13:50:49,256] - ThreadPool::~ThreadPool(): Discarding 1 finished tasks.
+DEBUG root [2021-12-17 13:50:49,256] - ThreadPool::destroy(): successfully!
+DEBUG root [2021-12-17 13:50:49,257] - ThreadPool::destroy(): starting size 1.
+ WARN root [2021-12-17 13:50:49,558] - ThreadPool::destroy(): waiting for thread(1)[0x133c2740,], try=1
+DEBUG root [2021-12-17 13:50:49,960] - TPThread::~TPThread(): 0x133c2740
+DEBUG root [2021-12-17 13:50:49,960] - ThreadPool::destroy(): successfully!
+DEBUG root [2021-12-17 13:50:49,965] - Bundle::destroyObjPool(): size 0.
+DEBUG root [2021-12-17 13:50:49,965] - Channel::destroyObjPool(): size 15.
+DEBUG root [2021-12-17 13:50:49,965] - TCPPacket::destroyObjPool(): size 0.
+DEBUG root [2021-12-17 13:50:49,965] - UDPPacket::destroyObjPool(): size 0.
+DEBUG root [2021-12-17 13:50:49,965] - EndPoint::destroyObjPool(): size 0.
+DEBUG root [2021-12-17 13:50:49,965] - Address::destroyObjPool(): size 0.
+DEBUG root [2021-12-17 13:50:49,966] - TCPPacketReceiver::destroyObjPool(): size 0.
+DEBUG root [2021-12-17 13:50:49,966] - UDPPacketReceiver::destroyObjPool(): size 0.
+ INFO root [2021-12-17 13:50:49,978] - Script::uninstall(): is successfully!
+ INFO root [2021-12-17 13:50:49,978] - client has shut down.
