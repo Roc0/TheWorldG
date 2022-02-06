@@ -2060,3 +2060,291 @@ DEBUG root [2021-12-17 13:50:49,966] - TCPPacketReceiver::destroyObjPool(): size
 DEBUG root [2021-12-17 13:50:49,966] - UDPPacketReceiver::destroyObjPool(): size 0.
  INFO root [2021-12-17 13:50:49,978] - Script::uninstall(): is successfully!
  INFO root [2021-12-17 13:50:49,978] - client has shut down.
+ INFO root [2022-02-06 12:21:09,174] - 
+ INFO root [2022-02-06 12:21:09,175] - -----------------------------------------------------------------------------------------
+
+
+ INFO root [2022-02-06 12:21:09,187] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:65238 )
+ INFO root [2022-02-06 12:21:09,187] - NetworkInterface::initialize(EXTERNAL-TCP): address 192.168.2.188:65238, SOMAXCONN=5.
+ INFO root [2022-02-06 12:21:09,189] - NetworkInterface::initialize(EXTERNAL-UDP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:63131 )
+ INFO root [2022-02-06 12:21:09,189] - NetworkInterface::initialize(EXTERNAL-UDP): address 192.168.2.188:63131, SOMAXCONN=5.
+ INFO root [2022-02-06 12:21:09,190] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:65239 )
+ INFO root [2022-02-06 12:21:09,190] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.2.188:65239, SOMAXCONN=5.
+ INFO root [2022-02-06 12:21:09,271] - Script::install(): is successfully, Python=(3.7.3 (heads/master-dirty:1e073f2dd, Mar 15 2020, 15:33:52) [MSC v.1916 64 bit (AMD64)])!
+ INFO root [2022-02-06 12:21:09,271] - Script::install(): KBExtra is successfully!
+ INFO root [2022-02-06 12:21:09,277] - ---- client Version: 2.5.10. ScriptVersion: 0.1.0. Protocol: 6282DF3927FC4EF9CF64A5D4E43EDB93. Config: Debug. Built: 17:43:23 Jan 22 2022. AppID: 7061555316091650048. UID: 0. PID: 23820 ----
+ INFO root [2022-02-06 12:21:09,277] - Server Riccardo: 11th Gen Intel(R) Core(TM) i5-11400F @ 2.60GHz with 16645500kB RAM
+ INFO root [2022-02-06 12:21:09,277] - ThreadPool::createThreadPool: creating  threadpool...
+ INFO root [2022-02-06 12:21:09,278] - ThreadPool::createThreadPool: successfully(1), newThreadCount=1, normalMaxThreadCount=1, maxThreadCount=4
+DEBUG root [2022-02-06 12:21:09,731] - loaded component-script:Test(3).
+DEBUG root [2022-02-06 12:21:09,732] - loaded component-script:TestNoBase(4).
+DEBUG root [2022-02-06 12:21:09,733] - loaded entity-script:Account(1).
+DEBUG root [2022-02-06 12:21:09,747] - loaded entity-script:Avatar(2).
+DEBUG root [2022-02-06 12:21:09,748] - loaded entity-script:Monster(5).
+DEBUG root [2022-02-06 12:21:09,749] - loaded entity-script:NPC(6).
+DEBUG root [2022-02-06 12:21:09,750] - loaded entity-script:Gate(7).
+S_DBG root [2022-02-06 12:21:09,753] - onInit::isReload = 0
+ INFO root [2022-02-06 12:21:09,753] - TelnetServer server is running on port 51000
+ INFO root [2022-02-06 12:21:09,753] - ThreadPool::createThreadPool: creating  threadpool...
+ INFO root [2022-02-06 12:21:09,754] - ThreadPool::createThreadPool: successfully(1), newThreadCount=1, normalMaxThreadCount=1, maxThreadCount=4
+ INFO root [2022-02-06 12:21:09,855] - ---- client is running ----
+ INFO root [2022-02-06 12:21:16,238] - ClientApp::shutDown: shutting down
+DEBUG root [2022-02-06 12:21:16,238] - ThreadPool::destroy(): starting size 1.
+ WARN root [2022-02-06 12:21:16,540] - ThreadPool::destroy(): waiting for thread(1)[0x1466df70,], try=1
+DEBUG root [2022-02-06 12:21:16,944] - TPThread::~TPThread(): 0x1466df70
+ WARN root [2022-02-06 12:21:16,944] - ThreadPool::~ThreadPool(): Discarding 1 finished tasks.
+DEBUG root [2022-02-06 12:21:16,945] - ThreadPool::destroy(): successfully!
+DEBUG root [2022-02-06 12:21:16,945] - ThreadPool::destroy(): starting size 1.
+ WARN root [2022-02-06 12:21:17,247] - ThreadPool::destroy(): waiting for thread(1)[0x1466d070,], try=1
+DEBUG root [2022-02-06 12:21:17,651] - TPThread::~TPThread(): 0x1466d070
+DEBUG root [2022-02-06 12:21:17,651] - ThreadPool::destroy(): successfully!
+DEBUG root [2022-02-06 12:21:17,651] - Bundle::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:21:17,651] - Channel::destroyObjPool(): size 15.
+DEBUG root [2022-02-06 12:21:17,652] - TCPPacket::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:21:17,652] - UDPPacket::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:21:17,652] - EndPoint::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:21:17,652] - Address::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:21:17,652] - TCPPacketReceiver::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:21:17,652] - UDPPacketReceiver::destroyObjPool(): size 0.
+ INFO root [2022-02-06 12:21:17,664] - Script::uninstall(): is successfully!
+ INFO root [2022-02-06 12:21:17,664] - client has shut down.
+ INFO root [2022-02-06 12:22:40,064] - 
+ INFO root [2022-02-06 12:22:40,065] - -----------------------------------------------------------------------------------------
+
+
+ INFO root [2022-02-06 12:22:40,077] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:65393 )
+ INFO root [2022-02-06 12:22:40,077] - NetworkInterface::initialize(EXTERNAL-TCP): address 192.168.2.188:65393, SOMAXCONN=5.
+ INFO root [2022-02-06 12:22:40,078] - NetworkInterface::initialize(EXTERNAL-UDP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:61798 )
+ INFO root [2022-02-06 12:22:40,078] - NetworkInterface::initialize(EXTERNAL-UDP): address 192.168.2.188:61798, SOMAXCONN=5.
+ INFO root [2022-02-06 12:22:40,080] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:65394 )
+ INFO root [2022-02-06 12:22:40,080] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.2.188:65394, SOMAXCONN=5.
+ INFO root [2022-02-06 12:22:40,141] - Script::install(): is successfully, Python=(3.7.3 (heads/master-dirty:1e073f2dd, Mar 15 2020, 15:33:52) [MSC v.1916 64 bit (AMD64)])!
+ INFO root [2022-02-06 12:22:40,141] - Script::install(): KBExtra is successfully!
+ INFO root [2022-02-06 12:22:40,145] - ---- client Version: 2.5.10. ScriptVersion: 0.1.0. Protocol: 6282DF3927FC4EF9CF64A5D4E43EDB93. Config: Debug. Built: 17:43:23 Jan 22 2022. AppID: 7061555707061338112. UID: 0. PID: 33068 ----
+ INFO root [2022-02-06 12:22:40,146] - Server Riccardo: 11th Gen Intel(R) Core(TM) i5-11400F @ 2.60GHz with 16645500kB RAM
+ INFO root [2022-02-06 12:22:40,146] - ThreadPool::createThreadPool: creating  threadpool...
+ INFO root [2022-02-06 12:22:40,147] - ThreadPool::createThreadPool: successfully(1), newThreadCount=1, normalMaxThreadCount=1, maxThreadCount=4
+DEBUG root [2022-02-06 12:22:40,507] - loaded component-script:Test(3).
+DEBUG root [2022-02-06 12:22:40,508] - loaded component-script:TestNoBase(4).
+DEBUG root [2022-02-06 12:22:40,509] - loaded entity-script:Account(1).
+DEBUG root [2022-02-06 12:22:40,520] - loaded entity-script:Avatar(2).
+DEBUG root [2022-02-06 12:22:40,521] - loaded entity-script:Monster(5).
+DEBUG root [2022-02-06 12:22:40,521] - loaded entity-script:NPC(6).
+DEBUG root [2022-02-06 12:22:40,522] - loaded entity-script:Gate(7).
+S_DBG root [2022-02-06 12:22:40,525] - onInit::isReload = 0
+ INFO root [2022-02-06 12:22:40,525] - TelnetServer server is running on port 51000
+ INFO root [2022-02-06 12:22:40,525] - ThreadPool::createThreadPool: creating  threadpool...
+ INFO root [2022-02-06 12:22:40,526] - ThreadPool::createThreadPool: successfully(1), newThreadCount=1, normalMaxThreadCount=1, maxThreadCount=4
+ INFO root [2022-02-06 12:22:40,627] - ---- client is running ----
+ INFO root [2022-02-06 12:22:48,896] - ClientApp::shutDown: shutting down
+DEBUG root [2022-02-06 12:22:48,897] - ThreadPool::destroy(): starting size 1.
+ WARN root [2022-02-06 12:22:49,197] - ThreadPool::destroy(): waiting for thread(1)[0x136a0810,], try=1
+DEBUG root [2022-02-06 12:22:49,602] - TPThread::~TPThread(): 0x136a0810
+ WARN root [2022-02-06 12:22:49,602] - ThreadPool::~ThreadPool(): Discarding 1 finished tasks.
+DEBUG root [2022-02-06 12:22:49,603] - ThreadPool::destroy(): successfully!
+DEBUG root [2022-02-06 12:22:49,603] - ThreadPool::destroy(): starting size 1.
+ WARN root [2022-02-06 12:22:49,904] - ThreadPool::destroy(): waiting for thread(1)[0xf9688e0,], try=1
+DEBUG root [2022-02-06 12:22:50,308] - TPThread::~TPThread(): 0xf9688e0
+DEBUG root [2022-02-06 12:22:50,309] - ThreadPool::destroy(): successfully!
+DEBUG root [2022-02-06 12:22:50,310] - Bundle::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:22:50,310] - Channel::destroyObjPool(): size 15.
+DEBUG root [2022-02-06 12:22:50,310] - TCPPacket::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:22:50,311] - UDPPacket::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:22:50,311] - EndPoint::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:22:50,311] - Address::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:22:50,312] - TCPPacketReceiver::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:22:50,312] - UDPPacketReceiver::destroyObjPool(): size 0.
+ INFO root [2022-02-06 12:22:50,322] - Script::uninstall(): is successfully!
+ INFO root [2022-02-06 12:22:50,322] - client has shut down.
+ INFO root [2022-02-06 12:24:34,954] - 
+ INFO root [2022-02-06 12:24:34,954] - -----------------------------------------------------------------------------------------
+
+
+ INFO root [2022-02-06 12:24:34,967] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:65524 )
+ INFO root [2022-02-06 12:24:34,968] - NetworkInterface::initialize(EXTERNAL-TCP): address 192.168.2.188:65524, SOMAXCONN=5.
+ INFO root [2022-02-06 12:24:34,969] - NetworkInterface::initialize(EXTERNAL-UDP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:59077 )
+ INFO root [2022-02-06 12:24:34,969] - NetworkInterface::initialize(EXTERNAL-UDP): address 192.168.2.188:59077, SOMAXCONN=5.
+ INFO root [2022-02-06 12:24:34,971] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:65525 )
+ INFO root [2022-02-06 12:24:34,971] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.2.188:65525, SOMAXCONN=5.
+ INFO root [2022-02-06 12:24:35,033] - Script::install(): is successfully, Python=(3.7.3 (heads/master-dirty:1e073f2dd, Mar 15 2020, 15:33:52) [MSC v.1916 64 bit (AMD64)])!
+ INFO root [2022-02-06 12:24:35,033] - Script::install(): KBExtra is successfully!
+ INFO root [2022-02-06 12:24:35,038] - ---- client Version: 2.5.10. ScriptVersion: 0.1.0. Protocol: 6282DF3927FC4EF9CF64A5D4E43EDB93. Config: Debug. Built: 17:43:23 Jan 22 2022. AppID: 7061556195502587904. UID: 0. PID: 8720 ----
+ INFO root [2022-02-06 12:24:35,038] - Server Riccardo: 11th Gen Intel(R) Core(TM) i5-11400F @ 2.60GHz with 16645500kB RAM
+ INFO root [2022-02-06 12:24:35,039] - ThreadPool::createThreadPool: creating  threadpool...
+ INFO root [2022-02-06 12:24:35,040] - ThreadPool::createThreadPool: successfully(1), newThreadCount=1, normalMaxThreadCount=1, maxThreadCount=4
+DEBUG root [2022-02-06 12:24:35,396] - loaded component-script:Test(3).
+DEBUG root [2022-02-06 12:24:35,397] - loaded component-script:TestNoBase(4).
+DEBUG root [2022-02-06 12:24:35,399] - loaded entity-script:Account(1).
+DEBUG root [2022-02-06 12:24:35,410] - loaded entity-script:Avatar(2).
+DEBUG root [2022-02-06 12:24:35,411] - loaded entity-script:Monster(5).
+DEBUG root [2022-02-06 12:24:35,411] - loaded entity-script:NPC(6).
+DEBUG root [2022-02-06 12:24:35,412] - loaded entity-script:Gate(7).
+S_DBG root [2022-02-06 12:24:35,415] - onInit::isReload = 0
+ INFO root [2022-02-06 12:24:35,415] - TelnetServer server is running on port 51000
+ INFO root [2022-02-06 12:24:35,415] - ThreadPool::createThreadPool: creating  threadpool...
+ INFO root [2022-02-06 12:24:35,416] - ThreadPool::createThreadPool: successfully(1), newThreadCount=1, normalMaxThreadCount=1, maxThreadCount=4
+ INFO root [2022-02-06 12:24:35,517] - ---- client is running ----
+ INFO root [2022-02-06 12:25:11,268] - ClientApp::shutDown: shutting down
+DEBUG root [2022-02-06 12:25:11,268] - ThreadPool::destroy(): starting size 1.
+ WARN root [2022-02-06 12:25:11,569] - ThreadPool::destroy(): waiting for thread(1)[0x1355a0e0,], try=1
+DEBUG root [2022-02-06 12:25:11,974] - TPThread::~TPThread(): 0x1355a0e0
+ WARN root [2022-02-06 12:25:11,974] - ThreadPool::~ThreadPool(): Discarding 1 finished tasks.
+DEBUG root [2022-02-06 12:25:11,975] - ThreadPool::destroy(): successfully!
+DEBUG root [2022-02-06 12:25:11,975] - ThreadPool::destroy(): starting size 1.
+ WARN root [2022-02-06 12:25:12,276] - ThreadPool::destroy(): waiting for thread(1)[0x1328a5c0,], try=1
+DEBUG root [2022-02-06 12:25:12,679] - TPThread::~TPThread(): 0x1328a5c0
+DEBUG root [2022-02-06 12:25:12,679] - ThreadPool::destroy(): successfully!
+DEBUG root [2022-02-06 12:25:12,679] - Bundle::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:25:12,680] - Channel::destroyObjPool(): size 15.
+DEBUG root [2022-02-06 12:25:12,680] - TCPPacket::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:25:12,680] - UDPPacket::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:25:12,680] - EndPoint::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:25:12,680] - Address::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:25:12,680] - TCPPacketReceiver::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:25:12,680] - UDPPacketReceiver::destroyObjPool(): size 0.
+ INFO root [2022-02-06 12:25:12,693] - Script::uninstall(): is successfully!
+ INFO root [2022-02-06 12:25:12,693] - client has shut down.
+ INFO root [2022-02-06 12:25:34,080] - 
+ INFO root [2022-02-06 12:25:34,081] - -----------------------------------------------------------------------------------------
+
+
+ INFO root [2022-02-06 12:25:34,092] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:49241 )
+ INFO root [2022-02-06 12:25:34,092] - NetworkInterface::initialize(EXTERNAL-TCP): address 192.168.2.188:49241, SOMAXCONN=5.
+ INFO root [2022-02-06 12:25:34,093] - NetworkInterface::initialize(EXTERNAL-UDP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:51862 )
+ INFO root [2022-02-06 12:25:34,094] - NetworkInterface::initialize(EXTERNAL-UDP): address 192.168.2.188:51862, SOMAXCONN=5.
+ INFO root [2022-02-06 12:25:34,095] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:49242 )
+ INFO root [2022-02-06 12:25:34,095] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.2.188:49242, SOMAXCONN=5.
+ INFO root [2022-02-06 12:25:34,154] - Script::install(): is successfully, Python=(3.7.3 (heads/master-dirty:1e073f2dd, Mar 15 2020, 15:33:52) [MSC v.1916 64 bit (AMD64)])!
+ INFO root [2022-02-06 12:25:34,154] - Script::install(): KBExtra is successfully!
+ INFO root [2022-02-06 12:25:34,159] - ---- client Version: 2.5.10. ScriptVersion: 0.1.0. Protocol: 6282DF3927FC4EF9CF64A5D4E43EDB93. Config: Debug. Built: 17:43:23 Jan 22 2022. AppID: 7061556452972625920. UID: 0. PID: 44240 ----
+ INFO root [2022-02-06 12:25:34,159] - Server Riccardo: 11th Gen Intel(R) Core(TM) i5-11400F @ 2.60GHz with 16645500kB RAM
+ INFO root [2022-02-06 12:25:34,160] - ThreadPool::createThreadPool: creating  threadpool...
+ INFO root [2022-02-06 12:25:34,160] - ThreadPool::createThreadPool: successfully(1), newThreadCount=1, normalMaxThreadCount=1, maxThreadCount=4
+DEBUG root [2022-02-06 12:25:34,514] - loaded component-script:Test(3).
+DEBUG root [2022-02-06 12:25:34,515] - loaded component-script:TestNoBase(4).
+DEBUG root [2022-02-06 12:25:34,516] - loaded entity-script:Account(1).
+DEBUG root [2022-02-06 12:25:34,527] - loaded entity-script:Avatar(2).
+DEBUG root [2022-02-06 12:25:34,528] - loaded entity-script:Monster(5).
+DEBUG root [2022-02-06 12:25:34,528] - loaded entity-script:NPC(6).
+DEBUG root [2022-02-06 12:25:34,529] - loaded entity-script:Gate(7).
+S_DBG root [2022-02-06 12:25:34,532] - onInit::isReload = 0
+ INFO root [2022-02-06 12:25:34,532] - TelnetServer server is running on port 51000
+ INFO root [2022-02-06 12:25:34,532] - ThreadPool::createThreadPool: creating  threadpool...
+ INFO root [2022-02-06 12:25:34,533] - ThreadPool::createThreadPool: successfully(1), newThreadCount=1, normalMaxThreadCount=1, maxThreadCount=4
+ INFO root [2022-02-06 12:25:34,635] - ---- client is running ----
+ INFO root [2022-02-06 12:25:47,720] - ClientApp::shutDown: shutting down
+DEBUG root [2022-02-06 12:25:47,720] - ThreadPool::destroy(): starting size 1.
+ WARN root [2022-02-06 12:25:48,024] - ThreadPool::destroy(): waiting for thread(1)[0x135eef20,], try=1
+DEBUG root [2022-02-06 12:25:48,428] - TPThread::~TPThread(): 0x135eef20
+ WARN root [2022-02-06 12:25:48,428] - ThreadPool::~ThreadPool(): Discarding 1 finished tasks.
+DEBUG root [2022-02-06 12:25:48,428] - ThreadPool::destroy(): successfully!
+DEBUG root [2022-02-06 12:25:48,428] - ThreadPool::destroy(): starting size 1.
+ WARN root [2022-02-06 12:25:48,728] - ThreadPool::destroy(): waiting for thread(1)[0xf9c6820,], try=1
+DEBUG root [2022-02-06 12:25:49,133] - TPThread::~TPThread(): 0xf9c6820
+DEBUG root [2022-02-06 12:25:49,134] - ThreadPool::destroy(): successfully!
+DEBUG root [2022-02-06 12:25:49,135] - Bundle::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:25:49,135] - Channel::destroyObjPool(): size 15.
+DEBUG root [2022-02-06 12:25:49,135] - TCPPacket::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:25:49,136] - UDPPacket::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:25:49,136] - EndPoint::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:25:49,136] - Address::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:25:49,137] - TCPPacketReceiver::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:25:49,137] - UDPPacketReceiver::destroyObjPool(): size 0.
+ INFO root [2022-02-06 12:25:49,148] - Script::uninstall(): is successfully!
+ INFO root [2022-02-06 12:25:49,149] - client has shut down.
+ INFO root [2022-02-06 12:27:57,870] - 
+ INFO root [2022-02-06 12:27:57,870] - -----------------------------------------------------------------------------------------
+
+
+ INFO root [2022-02-06 12:27:57,884] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:49447 )
+ INFO root [2022-02-06 12:27:57,884] - NetworkInterface::initialize(EXTERNAL-TCP): address 192.168.2.188:49447, SOMAXCONN=5.
+ INFO root [2022-02-06 12:27:57,885] - NetworkInterface::initialize(EXTERNAL-UDP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:61471 )
+ INFO root [2022-02-06 12:27:57,885] - NetworkInterface::initialize(EXTERNAL-UDP): address 192.168.2.188:61471, SOMAXCONN=5.
+ INFO root [2022-02-06 12:27:57,886] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:49448 )
+ INFO root [2022-02-06 12:27:57,886] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.2.188:49448, SOMAXCONN=5.
+ INFO root [2022-02-06 12:27:57,949] - Script::install(): is successfully, Python=(3.7.3 (heads/master-dirty:1e073f2dd, Mar 15 2020, 15:33:52) [MSC v.1916 64 bit (AMD64)])!
+ INFO root [2022-02-06 12:27:57,949] - Script::install(): KBExtra is successfully!
+ INFO root [2022-02-06 12:27:57,954] - ---- client Version: 2.5.10. ScriptVersion: 0.1.0. Protocol: 6282DF3927FC4EF9CF64A5D4E43EDB93. Config: Debug. Built: 17:43:23 Jan 22 2022. AppID: 7061557067859230720. UID: 0. PID: 74892 ----
+ INFO root [2022-02-06 12:27:57,954] - Server Riccardo: 11th Gen Intel(R) Core(TM) i5-11400F @ 2.60GHz with 16645500kB RAM
+ INFO root [2022-02-06 12:27:57,955] - ThreadPool::createThreadPool: creating  threadpool...
+ INFO root [2022-02-06 12:27:57,956] - ThreadPool::createThreadPool: successfully(1), newThreadCount=1, normalMaxThreadCount=1, maxThreadCount=4
+DEBUG root [2022-02-06 12:27:58,316] - loaded component-script:Test(3).
+DEBUG root [2022-02-06 12:27:58,317] - loaded component-script:TestNoBase(4).
+DEBUG root [2022-02-06 12:27:58,318] - loaded entity-script:Account(1).
+DEBUG root [2022-02-06 12:27:58,329] - loaded entity-script:Avatar(2).
+DEBUG root [2022-02-06 12:27:58,330] - loaded entity-script:Monster(5).
+DEBUG root [2022-02-06 12:27:58,330] - loaded entity-script:NPC(6).
+DEBUG root [2022-02-06 12:27:58,331] - loaded entity-script:Gate(7).
+S_DBG root [2022-02-06 12:27:58,334] - onInit::isReload = 0
+ INFO root [2022-02-06 12:27:58,334] - TelnetServer server is running on port 51000
+ INFO root [2022-02-06 12:27:58,334] - ThreadPool::createThreadPool: creating  threadpool...
+ INFO root [2022-02-06 12:27:58,335] - ThreadPool::createThreadPool: successfully(1), newThreadCount=1, normalMaxThreadCount=1, maxThreadCount=4
+ INFO root [2022-02-06 12:27:58,437] - ---- client is running ----
+ INFO root [2022-02-06 12:29:12,628] - ClientApp::shutDown: shutting down
+DEBUG root [2022-02-06 12:29:12,628] - ThreadPool::destroy(): starting size 1.
+ WARN root [2022-02-06 12:29:12,929] - ThreadPool::destroy(): waiting for thread(1)[0x2a17d520,], try=1
+DEBUG root [2022-02-06 12:29:13,331] - TPThread::~TPThread(): 0x2a17d520
+ WARN root [2022-02-06 12:29:13,331] - ThreadPool::~ThreadPool(): Discarding 1 finished tasks.
+DEBUG root [2022-02-06 12:29:13,331] - ThreadPool::destroy(): successfully!
+DEBUG root [2022-02-06 12:29:13,331] - ThreadPool::destroy(): starting size 1.
+ WARN root [2022-02-06 12:29:13,632] - ThreadPool::destroy(): waiting for thread(1)[0x2a17cb20,], try=1
+DEBUG root [2022-02-06 12:29:14,036] - TPThread::~TPThread(): 0x2a17cb20
+DEBUG root [2022-02-06 12:29:14,036] - ThreadPool::destroy(): successfully!
+DEBUG root [2022-02-06 12:29:14,036] - Bundle::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:29:14,037] - Channel::destroyObjPool(): size 15.
+DEBUG root [2022-02-06 12:29:14,037] - TCPPacket::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:29:14,037] - UDPPacket::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:29:14,037] - EndPoint::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:29:14,037] - Address::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:29:14,038] - TCPPacketReceiver::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:29:14,038] - UDPPacketReceiver::destroyObjPool(): size 0.
+ INFO root [2022-02-06 12:29:14,050] - Script::uninstall(): is successfully!
+ INFO root [2022-02-06 12:29:14,050] - client has shut down.
+ INFO root [2022-02-06 12:31:18,267] - 
+ INFO root [2022-02-06 12:31:18,267] - -----------------------------------------------------------------------------------------
+
+
+ INFO root [2022-02-06 12:31:18,280] - NetworkInterface::initialize(EXTERNAL-TCP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:49561 )
+ INFO root [2022-02-06 12:31:18,281] - NetworkInterface::initialize(EXTERNAL-TCP): address 192.168.2.188:49561, SOMAXCONN=5.
+ INFO root [2022-02-06 12:31:18,282] - NetworkInterface::initialize(EXTERNAL-UDP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:60150 )
+ INFO root [2022-02-06 12:31:18,282] - NetworkInterface::initialize(EXTERNAL-UDP): address 192.168.2.188:60150, SOMAXCONN=5.
+ INFO root [2022-02-06 12:31:18,283] - NetworkInterface::initialize(INTERNAL-TCP): bound to all interfaces with default route interface on 192.168.2.188 ( 192.168.2.188:49562 )
+ INFO root [2022-02-06 12:31:18,283] - NetworkInterface::initialize(INTERNAL-TCP): address 192.168.2.188:49562, SOMAXCONN=5.
+ INFO root [2022-02-06 12:31:18,344] - Script::install(): is successfully, Python=(3.7.3 (heads/master-dirty:1e073f2dd, Mar 15 2020, 15:33:52) [MSC v.1916 64 bit (AMD64)])!
+ INFO root [2022-02-06 12:31:18,344] - Script::install(): KBExtra is successfully!
+ INFO root [2022-02-06 12:31:18,349] - ---- client Version: 2.5.10. ScriptVersion: 0.1.0. Protocol: 6282DF3927FC4EF9CF64A5D4E43EDB93. Config: Debug. Built: 17:43:23 Jan 22 2022. AppID: 7061557931084218368. UID: 0. PID: 22664 ----
+ INFO root [2022-02-06 12:31:18,349] - Server Riccardo: 11th Gen Intel(R) Core(TM) i5-11400F @ 2.60GHz with 16645500kB RAM
+ INFO root [2022-02-06 12:31:18,350] - ThreadPool::createThreadPool: creating  threadpool...
+ INFO root [2022-02-06 12:31:18,351] - ThreadPool::createThreadPool: successfully(1), newThreadCount=1, normalMaxThreadCount=1, maxThreadCount=4
+DEBUG root [2022-02-06 12:31:18,714] - loaded component-script:Test(3).
+DEBUG root [2022-02-06 12:31:18,715] - loaded component-script:TestNoBase(4).
+DEBUG root [2022-02-06 12:31:18,716] - loaded entity-script:Account(1).
+DEBUG root [2022-02-06 12:31:18,727] - loaded entity-script:Avatar(2).
+DEBUG root [2022-02-06 12:31:18,728] - loaded entity-script:Monster(5).
+DEBUG root [2022-02-06 12:31:18,729] - loaded entity-script:NPC(6).
+DEBUG root [2022-02-06 12:31:18,729] - loaded entity-script:Gate(7).
+S_DBG root [2022-02-06 12:31:18,732] - onInit::isReload = 0
+ INFO root [2022-02-06 12:31:18,732] - TelnetServer server is running on port 51000
+ INFO root [2022-02-06 12:31:18,733] - ThreadPool::createThreadPool: creating  threadpool...
+ INFO root [2022-02-06 12:31:18,733] - ThreadPool::createThreadPool: successfully(1), newThreadCount=1, normalMaxThreadCount=1, maxThreadCount=4
+ INFO root [2022-02-06 12:31:18,835] - ---- client is running ----
+ INFO root [2022-02-06 12:32:25,131] - ClientApp::shutDown: shutting down
+DEBUG root [2022-02-06 12:32:25,131] - ThreadPool::destroy(): starting size 1.
+ WARN root [2022-02-06 12:32:25,433] - ThreadPool::destroy(): waiting for thread(1)[0x136b0b60,], try=1
+DEBUG root [2022-02-06 12:32:25,834] - TPThread::~TPThread(): 0x136b0b60
+ WARN root [2022-02-06 12:32:25,834] - ThreadPool::~ThreadPool(): Discarding 1 finished tasks.
+DEBUG root [2022-02-06 12:32:25,834] - ThreadPool::destroy(): successfully!
+DEBUG root [2022-02-06 12:32:25,834] - ThreadPool::destroy(): starting size 1.
+ WARN root [2022-02-06 12:32:26,135] - ThreadPool::destroy(): waiting for thread(1)[0x136b1b00,], try=1
+DEBUG root [2022-02-06 12:32:26,539] - TPThread::~TPThread(): 0x136b1b00
+DEBUG root [2022-02-06 12:32:26,539] - ThreadPool::destroy(): successfully!
+DEBUG root [2022-02-06 12:32:26,540] - Bundle::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:32:26,540] - Channel::destroyObjPool(): size 15.
+DEBUG root [2022-02-06 12:32:26,540] - TCPPacket::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:32:26,540] - UDPPacket::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:32:26,540] - EndPoint::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:32:26,540] - Address::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:32:26,541] - TCPPacketReceiver::destroyObjPool(): size 0.
+DEBUG root [2022-02-06 12:32:26,541] - UDPPacketReceiver::destroyObjPool(): size 0.
+ INFO root [2022-02-06 12:32:26,552] - Script::uninstall(): is successfully!
+ INFO root [2022-02-06 12:32:26,552] - client has shut down.
